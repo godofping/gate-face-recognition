@@ -1,0 +1,5 @@
+C:\xampp\htdocs\gate-face-recognition\ETC\libemgucv-windesktop-4.5.1.4349\Emgu.CV.Example\FaceDetectionVB\obj\Debug\FaceDetectionVB.vbprojAssemblyReference.cache
+C:\xampp\htdocs\gate-face-recognition\ETC\libemgucv-windesktop-4.5.1.4349\Emgu.CV.Example\FaceDetectionVB\obj\Debug\Example.FaceDetectionVB.exe.config
+C:\xampp\htdocs\gate-face-recognition\ETC\libemgucv-windesktop-4.5.1.4349\Emgu.CV.Example\FaceDetectionVB\obj\Debug\FaceDetectionVB.Resources.resources
+C:\xampp\htdocs\gate-face-recognition\ETC\libemgucv-windesktop-4.5.1.4349\Emgu.CV.Example\FaceDetectionVB\obj\Debug\FaceDetectionVB.vbproj.GenerateResource.cache
+C:\xampp\htdocs\gate-face-recognition\ETC\libemgucv-windesktop-4.5.1.4349\Emgu.CV.Example\FaceDetectionVB\obj\Debug\FaceDetectionVB.vbproj.CoreCompileInputs.cache

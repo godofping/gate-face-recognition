@@ -1,0 +1,37 @@
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\bin\Debug\Face Recognition.exe
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\bin\Debug\Face Recognition.pdb
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\bin\Debug\Face Recognition.xml
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\obj\x86\Debug\Face_Recognition.Form1.resources
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\obj\x86\Debug\Face_Recognition.Resources.resources
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\obj\x86\Debug\Face Recognition.vbproj.GenerateResource.Cache
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\obj\x86\Debug\Face Recognition.exe
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\obj\x86\Debug\Face Recognition.xml
+C:\Users\nicol\AppData\Local\Temporary Projects\Face Recognition\obj\x86\Debug\Face Recognition.pdb
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.exe
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.xml
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.pdb
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\bin\Debug\Face Recognition.exe
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\bin\Debug\Face Recognition.pdb
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\bin\Debug\Face Recognition.xml
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face_Recognition.Form1.resources
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face_Recognition.Resources.resources
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.vbproj.GenerateResource.Cache
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.vbprojResolveAssemblyReference.cache
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\bin\Debug\Emgu.CV.xml
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\bin\Debug\Emgu.CV.UI.xml
+C:\Users\nicol\Desktop\Face Recognition Software\Face Recognition\Face Recognition\bin\Debug\Emgu.Util.xml
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\bin\Debug\Face Recognition.exe
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\bin\Debug\Face Recognition.pdb
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\bin\Debug\Face Recognition.xml
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\bin\Debug\Emgu.CV.xml
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\bin\Debug\Emgu.CV.UI.xml
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\bin\Debug\Emgu.Util.xml
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.vbprojAssemblyReference.cache
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face_Recognition.Form1.resources
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face_Recognition.Resources.resources
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.vbproj.GenerateResource.cache
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.vbproj.CoreCompileInputs.cache
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.vbproj.CopyComplete
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.exe
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.xml
+C:\xampp\htdocs\gate-face-recognition\ETC\TUT 2\Face Recognition\Face Recognition\obj\x86\Debug\Face Recognition.pdb
