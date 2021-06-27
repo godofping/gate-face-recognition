@@ -152,6 +152,9 @@ Partial Class frmAttendance
         Me.label2.TabIndex = 21
         Me.label2.Text = "Number of faces detected: "
         '
+        'Timer1
+        '
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -175,7 +178,7 @@ Partial Class frmAttendance
         Me.Controls.Add(Me.button1)
         Me.Controls.Add(Me.label2)
         Me.Controls.Add(Me.Label6)
-        Me.Name = "frmAttendance"
+        Me.name = "frmAttendance"
         Me.Text = "frmAttendance"
         CType(Me.imageBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imageBoxFrameGrabber, System.ComponentModel.ISupportInitialize).EndInit()

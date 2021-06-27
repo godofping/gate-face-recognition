@@ -31,7 +31,7 @@ Public Class frmAttendance
         'eye = new HaarCascade("haarcascade_eye.xml");
         Try
             'Load of previus trainned faces and labels for each image
-            Dim Labelsinfo As String = File.ReadAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt")
+            Dim Labelsinfo As String = File.ReadAllText("C:/StudentFaces/TrainedLabels.txt")
             Dim Labels__1 As String() = Labelsinfo.Split("%"c)
             NumLabels = Convert.ToInt16(Labels__1(0))
             ContTrain = NumLabels
@@ -39,7 +39,7 @@ Public Class frmAttendance
 
             For tf As Integer = 1 To NumLabels
                 LoadFaces = "face" & tf & ".bmp"
-                trainingImages.Add(New Image(Of Gray, Byte)(Application.StartupPath + "/TrainedFaces/" & LoadFaces))
+                trainingImages.Add(New Image(Of Gray, Byte)("C:/StudentFaces/" & LoadFaces))
                 labels.Add(Labels__1(tf))
 
             Next
@@ -84,12 +84,12 @@ Public Class frmAttendance
             imageBox1.Image = TrainedFace
 
             'Write the number of triained faces in a file text for further load
-            File.WriteAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", trainingImages.ToArray().Length.ToString() & "%")
+            File.WriteAllText("C:/StudentFaces/TrainedLabels.txt", trainingImages.ToArray().Length.ToString() & "%")
 
             'Write the labels of triained faces in a file text for further load
             For i As Integer = 1 To trainingImages.ToArray().Length
-                trainingImages.ToArray()(i - 1).Save(Application.StartupPath + "/TrainedFaces/face" & i & ".bmp")
-                File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()(i - 1) + "%")
+                trainingImages.ToArray()(i - 1).Save("C:/StudentFaces/face" & i & ".bmp")
+                File.AppendAllText("C:/StudentFaces/TrainedLabels.txt", labels.ToArray()(i - 1) + "%")
             Next
 
             MessageBox.Show(textBox1.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -147,7 +147,7 @@ Public Class frmAttendance
 
         'Names concatenation of persons recognized
         For nnn As Integer = 0 To facesDetected(0).Length - 1
-            names = names + NamePersons(nnn) + ", "
+            names = NamePersons(nnn)
         Next
         'Show the faces procesed and recognized
         imageBoxFrameGrabber.Image = currentFrame

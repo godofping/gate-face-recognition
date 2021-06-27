@@ -91,6 +91,7 @@
     <Compile Include="Classes\EigenObjectRecognizer.vb" />
     <Compile Include="Classes\Helper.vb" />
     <Compile Include="Classes\Admin.vb" />
+    <Compile Include="Classes\StudentImage.vb" />
     <Compile Include="Forms\frmAdmins.Designer.vb">
       <DependentUpon>frmAdmins.vb</DependentUpon>
     </Compile>
