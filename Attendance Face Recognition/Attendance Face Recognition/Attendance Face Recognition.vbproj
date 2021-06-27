@@ -163,6 +163,9 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStudentImage.resx">
+      <DependentUpon>frmStudentImage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStudents.resx">
       <DependentUpon>frmStudents.vb</DependentUpon>
     </EmbeddedResource>

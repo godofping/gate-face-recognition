@@ -23,3 +23,4 @@ C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Fac
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.UI.xml
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.Util.xml
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.vbproj.CopyComplete
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmStudentImage.resources
