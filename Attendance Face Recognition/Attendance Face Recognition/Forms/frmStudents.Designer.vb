@@ -27,13 +27,11 @@ Partial Class frmStudents
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.cbExtension = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.txtIDNumber = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtContactPersonNumber = New System.Windows.Forms.TextBox()
+        Me.txtContactPersonPhoneNumber = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtContactPerson = New System.Windows.Forms.TextBox()
+        Me.txtContactPersonFullName = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -46,9 +44,7 @@ Partial Class frmStudents
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cbProgram = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cbDepartment = New System.Windows.Forms.ComboBox()
+        Me.cbGradeLevel = New System.Windows.Forms.ComboBox()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -90,7 +86,7 @@ Partial Class frmStudents
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv.EnableHeadersVisualStyles = False
-        Me.dgv.Location = New System.Drawing.Point(12, 278)
+        Me.dgv.Location = New System.Drawing.Point(12, 252)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
@@ -98,32 +94,8 @@ Partial Class frmStudents
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.dgv.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(1000, 401)
+        Me.dgv.Size = New System.Drawing.Size(1000, 427)
         Me.dgv.TabIndex = 31
-        '
-        'cbExtension
-        '
-        Me.cbExtension.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cbExtension.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbExtension.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.cbExtension.FormattingEnabled = True
-        Me.cbExtension.ItemHeight = 20
-        Me.cbExtension.Items.AddRange(New Object() {"", "JR", "SR", "I", "II", "III", "IV"})
-        Me.cbExtension.Location = New System.Drawing.Point(452, 127)
-        Me.cbExtension.Name = "cbExtension"
-        Me.cbExtension.Size = New System.Drawing.Size(168, 28)
-        Me.cbExtension.TabIndex = 7
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(331, 130)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(76, 20)
-        Me.Label13.TabIndex = 29
-        Me.Label13.Text = "Extension"
         '
         'txtIDNumber
         '
@@ -143,13 +115,13 @@ Partial Class frmStudents
         Me.Label12.TabIndex = 27
         Me.Label12.Text = "ID # *"
         '
-        'txtContactPersonNumber
+        'txtContactPersonPhoneNumber
         '
-        Me.txtContactPersonNumber.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactPersonNumber.Location = New System.Drawing.Point(803, 55)
-        Me.txtContactPersonNumber.Name = "txtContactPersonNumber"
-        Me.txtContactPersonNumber.Size = New System.Drawing.Size(168, 26)
-        Me.txtContactPersonNumber.TabIndex = 9
+        Me.txtContactPersonPhoneNumber.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContactPersonPhoneNumber.Location = New System.Drawing.Point(803, 55)
+        Me.txtContactPersonPhoneNumber.Name = "txtContactPersonPhoneNumber"
+        Me.txtContactPersonPhoneNumber.Size = New System.Drawing.Size(168, 26)
+        Me.txtContactPersonPhoneNumber.TabIndex = 9
         '
         'Label10
         '
@@ -161,13 +133,13 @@ Partial Class frmStudents
         Me.Label10.TabIndex = 20
         Me.Label10.Text = "Contact Person # *"
         '
-        'txtContactPerson
+        'txtContactPersonFullName
         '
-        Me.txtContactPerson.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactPerson.Location = New System.Drawing.Point(803, 20)
-        Me.txtContactPerson.Name = "txtContactPerson"
-        Me.txtContactPerson.Size = New System.Drawing.Size(168, 26)
-        Me.txtContactPerson.TabIndex = 8
+        Me.txtContactPersonFullName.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContactPersonFullName.Location = New System.Drawing.Point(803, 20)
+        Me.txtContactPersonFullName.Name = "txtContactPersonFullName"
+        Me.txtContactPersonFullName.Size = New System.Drawing.Size(168, 26)
+        Me.txtContactPersonFullName.TabIndex = 8
         '
         'btnSave
         '
@@ -228,7 +200,7 @@ Partial Class frmStudents
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.txtSearch.Location = New System.Drawing.Point(76, 246)
+        Me.txtSearch.Location = New System.Drawing.Point(76, 220)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(327, 26)
         Me.txtSearch.TabIndex = 35
@@ -297,46 +269,25 @@ Partial Class frmStudents
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 250)
+        Me.Label2.Location = New System.Drawing.Point(15, 224)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 18)
         Me.Label2.TabIndex = 34
         Me.Label2.Text = "Search"
         '
-        'cbProgram
+        'cbGradeLevel
         '
-        Me.cbProgram.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cbProgram.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbProgram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbProgram.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.cbProgram.FormattingEnabled = True
-        Me.cbProgram.Location = New System.Drawing.Point(140, 131)
-        Me.cbProgram.Name = "cbProgram"
-        Me.cbProgram.Size = New System.Drawing.Size(168, 28)
-        Me.cbProgram.TabIndex = 3
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(19, 134)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(81, 20)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Program *"
-        '
-        'cbDepartment
-        '
-        Me.cbDepartment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cbDepartment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbDepartment.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.cbDepartment.FormattingEnabled = True
-        Me.cbDepartment.ItemHeight = 20
-        Me.cbDepartment.Location = New System.Drawing.Point(140, 93)
-        Me.cbDepartment.Name = "cbDepartment"
-        Me.cbDepartment.Size = New System.Drawing.Size(168, 28)
-        Me.cbDepartment.TabIndex = 2
+        Me.cbGradeLevel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cbGradeLevel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cbGradeLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbGradeLevel.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.cbGradeLevel.FormattingEnabled = True
+        Me.cbGradeLevel.ItemHeight = 20
+        Me.cbGradeLevel.Items.AddRange(New Object() {"GRADE 7", "GRADE 8", "GRADE 9", "GRADE 10"})
+        Me.cbGradeLevel.Location = New System.Drawing.Point(140, 93)
+        Me.cbGradeLevel.Name = "cbGradeLevel"
+        Me.cbGradeLevel.Size = New System.Drawing.Size(168, 28)
+        Me.cbGradeLevel.TabIndex = 2
         '
         'txtLastName
         '
@@ -362,9 +313,9 @@ Partial Class frmStudents
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(19, 96)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(107, 20)
+        Me.Label4.Size = New System.Drawing.Size(101, 20)
         Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Department *"
+        Me.Label4.Text = "Grade Level"
         '
         'txtStudentID
         '
@@ -397,21 +348,17 @@ Partial Class frmStudents
         '
         'gbForm
         '
-        Me.gbForm.Controls.Add(Me.cbExtension)
-        Me.gbForm.Controls.Add(Me.Label13)
         Me.gbForm.Controls.Add(Me.txtIDNumber)
         Me.gbForm.Controls.Add(Me.Label12)
-        Me.gbForm.Controls.Add(Me.txtContactPersonNumber)
+        Me.gbForm.Controls.Add(Me.txtContactPersonPhoneNumber)
         Me.gbForm.Controls.Add(Me.Label10)
-        Me.gbForm.Controls.Add(Me.txtContactPerson)
+        Me.gbForm.Controls.Add(Me.txtContactPersonFullName)
         Me.gbForm.Controls.Add(Me.Label9)
         Me.gbForm.Controls.Add(Me.txtMiddleName)
         Me.gbForm.Controls.Add(Me.Label8)
         Me.gbForm.Controls.Add(Me.txtFirstName)
         Me.gbForm.Controls.Add(Me.Label7)
-        Me.gbForm.Controls.Add(Me.cbProgram)
-        Me.gbForm.Controls.Add(Me.Label6)
-        Me.gbForm.Controls.Add(Me.cbDepartment)
+        Me.gbForm.Controls.Add(Me.cbGradeLevel)
         Me.gbForm.Controls.Add(Me.txtLastName)
         Me.gbForm.Controls.Add(Me.Label5)
         Me.gbForm.Controls.Add(Me.Label4)
@@ -419,7 +366,7 @@ Partial Class frmStudents
         Me.gbForm.Controls.Add(Me.Label3)
         Me.gbForm.Location = New System.Drawing.Point(12, 56)
         Me.gbForm.Name = "gbForm"
-        Me.gbForm.Size = New System.Drawing.Size(1000, 177)
+        Me.gbForm.Size = New System.Drawing.Size(1000, 144)
         Me.gbForm.TabIndex = 32
         Me.gbForm.TabStop = False
         '
@@ -439,6 +386,7 @@ Partial Class frmStudents
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.gbForm)
+        Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.Black
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmStudents"
@@ -453,13 +401,11 @@ Partial Class frmStudents
     End Sub
 
     Friend WithEvents dgv As DataGridView
-    Friend WithEvents cbExtension As ComboBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents txtIDNumber As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents txtContactPersonNumber As TextBox
+    Friend WithEvents txtContactPersonPhoneNumber As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents txtContactPerson As TextBox
+    Friend WithEvents txtContactPersonFullName As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnUpdate As Button
@@ -472,9 +418,7 @@ Partial Class frmStudents
     Friend WithEvents Label7 As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents cbProgram As ComboBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents cbDepartment As ComboBox
+    Friend WithEvents cbGradeLevel As ComboBox
     Friend WithEvents txtLastName As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label

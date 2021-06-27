@@ -68,18 +68,18 @@ Public Class Admin
         End Using
     End Function
 
-    Public Function CheckIfExistingUsername(ByVal admin As Admin) As DataTable
+    Public Function CheckIfExisting(ByVal admin As Admin) As DataTable
         Using cmd = New SqlCommand()
-            cmd.CommandText = "select * from admin where username = @username"
+            cmd.CommandText = "select * from admin where admin_id <> @admin_id and username = @username"
             cmd.Parameters.AddWithValue("@admin_id", admin._Admin_id)
             cmd.Parameters.AddWithValue("@username", admin._Username)
             Return Helper.executeQuery(cmd)
         End Using
     End Function
 
-    Public Function CheckIfExisting(ByVal admin As Admin) As DataTable
+    Public Function CheckIfExistingUsername(ByVal admin As Admin) As DataTable
         Using cmd = New SqlCommand()
-            cmd.CommandText = "select * from admin where admin_id <> @admin_id and username = @username"
+            cmd.CommandText = "select * from admin where username = @username"
             cmd.Parameters.AddWithValue("@admin_id", admin._Admin_id)
             cmd.Parameters.AddWithValue("@username", admin._Username)
             Return Helper.executeQuery(cmd)
