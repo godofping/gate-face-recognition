@@ -14,10 +14,33 @@ Public Class frmStudentImage
     Dim student As Student
     Dim studentimage As New StudentImage
 
+    Sub getImages()
+        Dim dt As DataTable = studentimage.FetchByStudentID(student)
+
+        dt.Columns.Add("image", Type.GetType("System.Byte[]"))
+
+        For Each drow As DataRow In dt.Rows
+            drow("image") = File.ReadAllBytes(drow("image_location").ToString)
+        Next
+        dgv.DataSource = dt
+    End Sub
+
+    Sub ManageDGV()
+        Helper.DGVRenameColumns(dgv, "#", "Student ID", "Image Location", "Image")
+        Helper.DGVFillWeights(dgv, New Object() {0, 3}, New Integer() {25, 75})
+        Helper.DGVHiddenColumns(dgv, "student_id", "image_location")
+        For i = 0 To dgv.Rows.Count - 1
+            dgv.Rows(i).Height = 100
+        Next
+    End Sub
+
+
     Private Sub frmStudentImage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         grabber = New Capture(0)
         grabber.QueryFrame()
         Timer1.Start()
+        getImages()
+        ManageDGV()
     End Sub
 
     Public Sub New(_student As Student)
@@ -59,6 +82,7 @@ Public Class frmStudentImage
 
             If (studentimage.Create(studentimage)) Then
                 MsgBox("PICTURE ADDED")
+                getImages()
             End If
 
             ibDetectedFace.Image = Nothing

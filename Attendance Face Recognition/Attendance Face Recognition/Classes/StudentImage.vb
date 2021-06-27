@@ -40,6 +40,14 @@ Public Class StudentImage
         End Using
     End Function
 
+    Public Function FetchByStudentID(ByVal student As Student) As DataTable
+        Using cmd = New SqlCommand()
+            cmd.CommandText = "select * from student_image where student_id = @student_id"
+            cmd.Parameters.AddWithValue("@student_id", student._Student_id)
+            Return Helper.executeQuery(cmd)
+        End Using
+    End Function
+
     Public Function Create(ByVal image As StudentImage) As Integer
         Using cmd = New SqlCommand()
             cmd.CommandText = "insert into student_image values (@student_id, @image_location); SELECT SCOPE_IDENTITY();"
