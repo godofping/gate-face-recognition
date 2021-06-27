@@ -3,10 +3,13 @@ C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Fac
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Attendance Face Recognition.pdb
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Attendance Face Recognition.xml
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.vbprojAssemblyReference.cache
-C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.Form1.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.Resources.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.vbproj.GenerateResource.cache
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.vbproj.CoreCompileInputs.cache
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.exe
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.xml
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.pdb
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmMain.resources
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmStudents.resources
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmLogin.resources
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmAdmins.resources

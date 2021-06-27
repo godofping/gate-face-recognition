@@ -55,6 +55,7 @@ Public Class Helper
                 cmd.CommandType = CommandType.Text
                 cmd.Connection = con
                 trans = con.BeginTransaction()
+                cmd.Transaction = trans
 
                 Try
 

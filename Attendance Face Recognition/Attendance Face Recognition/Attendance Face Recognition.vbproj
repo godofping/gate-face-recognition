@@ -75,23 +75,41 @@
   <ItemGroup>
     <Compile Include="Classes\Helper.vb" />
     <Compile Include="Classes\Admin.vb" />
-    <Compile Include="Forms\AttendanceForm.Designer.vb">
-      <DependentUpon>AttendanceForm.vb</DependentUpon>
+    <Compile Include="Forms\frmAdmins.Designer.vb">
+      <DependentUpon>frmAdmins.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AttendanceForm.vb">
+    <Compile Include="Forms\frmAdmins.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.vb">
+    <Compile Include="Forms\frmAttendance.Designer.vb">
+      <DependentUpon>frmAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAttendance.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Forms\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginForm.Designer.vb">
-      <DependentUpon>LoginForm.vb</DependentUpon>
+    <Compile Include="Forms\frmSetting.Designer.vb">
+      <DependentUpon>frmSetting.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginForm.vb">
+    <Compile Include="Forms\frmSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStudents.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStudents.Designer.vb">
+      <DependentUpon>frmStudents.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -112,11 +130,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmAdmins.resx">
+      <DependentUpon>frmAdmins.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
-      <DependentUpon>LoginForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStudents.resx">
+      <DependentUpon>frmStudents.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
