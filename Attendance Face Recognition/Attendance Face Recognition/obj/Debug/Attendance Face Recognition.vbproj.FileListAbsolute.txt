@@ -13,3 +13,13 @@ C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Fac
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmStudents.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmLogin.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmAdmins.resources
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance_Face_Recognition.frmAttendance.resources
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.dll
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.GPU.dll
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.ML.dll
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.UI.dll
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.Util.dll
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.xml
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.CV.UI.xml
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\Emgu.Util.xml
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Attendance Face Recognition.vbproj.CopyComplete
