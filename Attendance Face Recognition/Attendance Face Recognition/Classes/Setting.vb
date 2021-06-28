@@ -2,8 +2,8 @@
 
 Public Class Setting
     Dim broadband_com As String
-    Dim camera_entrance As String
-    Dim camera_exit As String
+    Dim camera_entrance As Integer
+    Dim camera_exit As Integer
 
     Public Property _Broadband_com As String
         Get
@@ -14,23 +14,41 @@ Public Class Setting
         End Set
     End Property
 
-    Public Property _Camera_entrance As String
+    Public Property _Camera_entrance As Integer
         Get
             Return camera_entrance
         End Get
-        Set(value As String)
+        Set(value As Integer)
             camera_entrance = value
         End Set
     End Property
 
-    Public Property _Camera_exit As String
+    Public Property _Camera_exit As Integer
         Get
             Return camera_exit
         End Get
-        Set(value As String)
+        Set(value As Integer)
             camera_exit = value
         End Set
     End Property
+
+    Public Function Fetch(ByVal setting As Setting) As Setting
+        Dim dt As DataTable = Nothing
+
+        Using cmd = New SqlCommand()
+            cmd.CommandText = "select * from setting"
+            dt = Helper.executeQuery(cmd)
+        End Using
+
+        If dt.Rows.Count > 0 Then
+            setting._Broadband_com = dt.Rows(0)("broadband_com").ToString()
+            setting._Camera_entrance = dt.Rows(0)("camera_entrance").ToString()
+            setting._Camera_exit = Convert.ToInt32(dt.Rows(0)("camera_exit"))
+            Return setting
+        Else
+            Return Nothing
+        End If
+    End Function
 
     Public Function Update(ByVal setting As Setting) As Boolean
         Using cmd = New SqlCommand()
