@@ -53,7 +53,7 @@ Public Class frmStudentImage
     End Sub
 
     Private Sub frmStudentImage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        grabber = New Capture(0)
+        grabber = New Capture()
         grabber.QueryFrame()
         Timer1.Start()
         getImages()
@@ -90,7 +90,6 @@ Public Class frmStudentImage
             studentimage._Image_location = "C:/StudentFaces/" & RandomName & ".bmp"
 
             If (studentimage.Create(studentimage)) Then
-                MsgBox("PICTURE ADDED")
                 getImages()
                 ManageDGV()
             End If

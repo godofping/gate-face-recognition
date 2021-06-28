@@ -30,6 +30,7 @@ Partial Class frmMain
         Me.mnAttendanceHistory = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnStudentList = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnLogout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,8 +44,9 @@ Partial Class frmMain
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Green
         Me.MenuStrip1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnStudents, Me.mnAdmins, Me.mnReports, Me.mnLogout})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnStudents, Me.mnAdmins, Me.mnReports, Me.mnSettings, Me.mnLogout})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1024, 30)
@@ -53,12 +55,14 @@ Partial Class frmMain
         '
         'mnStudents
         '
+        Me.mnStudents.ForeColor = System.Drawing.Color.White
         Me.mnStudents.Name = "mnStudents"
         Me.mnStudents.Size = New System.Drawing.Size(101, 26)
         Me.mnStudents.Text = "Students"
         '
         'mnAdmins
         '
+        Me.mnAdmins.ForeColor = System.Drawing.Color.White
         Me.mnAdmins.Name = "mnAdmins"
         Me.mnAdmins.Size = New System.Drawing.Size(89, 26)
         Me.mnAdmins.Text = "Admins"
@@ -66,6 +70,7 @@ Partial Class frmMain
         'mnReports
         '
         Me.mnReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnAttendanceHistory, Me.mnStudentList})
+        Me.mnReports.ForeColor = System.Drawing.Color.White
         Me.mnReports.Name = "mnReports"
         Me.mnReports.Size = New System.Drawing.Size(91, 26)
         Me.mnReports.Text = "Reports"
@@ -85,9 +90,17 @@ Partial Class frmMain
         '
         'mnLogout
         '
+        Me.mnLogout.ForeColor = System.Drawing.Color.White
         Me.mnLogout.Name = "mnLogout"
         Me.mnLogout.Size = New System.Drawing.Size(87, 26)
         Me.mnLogout.Text = "Logout"
+        '
+        'mnSettings
+        '
+        Me.mnSettings.ForeColor = System.Drawing.Color.White
+        Me.mnSettings.Name = "mnSettings"
+        Me.mnSettings.Size = New System.Drawing.Size(92, 26)
+        Me.mnSettings.Text = "Settings"
         '
         'frmMain
         '
@@ -118,4 +131,5 @@ Partial Class frmMain
     Friend WithEvents mnAttendanceHistory As ToolStripMenuItem
     Friend WithEvents mnStudentList As ToolStripMenuItem
     Friend WithEvents mnLogout As ToolStripMenuItem
+    Friend WithEvents mnSettings As ToolStripMenuItem
 End Class

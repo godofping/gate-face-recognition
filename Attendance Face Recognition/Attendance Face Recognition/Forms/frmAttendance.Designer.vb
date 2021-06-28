@@ -114,7 +114,7 @@ Partial Class frmAttendance
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Attendance_Face_Recognition.My.Resources.Resources.sksu_logo
+        Me.PictureBox1.Image = Global.Face_Attendance_SMS_Terminal.My.Resources.Resources.sksu_logo
         Me.PictureBox1.Location = New System.Drawing.Point(1248, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(115, 107)
@@ -139,9 +139,9 @@ Partial Class frmAttendance
         Me.lblDateTime.ForeColor = System.Drawing.Color.Green
         Me.lblDateTime.Location = New System.Drawing.Point(79, 135)
         Me.lblDateTime.Name = "lblDateTime"
-        Me.lblDateTime.Size = New System.Drawing.Size(159, 49)
+        Me.lblDateTime.Size = New System.Drawing.Size(369, 49)
         Me.lblDateTime.TabIndex = 26
-        Me.lblDateTime.Text = "Label4"
+        Me.lblDateTime.Text = "Loading system.."
         '
         'frmAttendance
         '
