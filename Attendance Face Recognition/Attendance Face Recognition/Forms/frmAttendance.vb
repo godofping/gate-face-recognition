@@ -21,8 +21,12 @@ Public Class frmAttendance
     Dim ContTrain As Integer, NumLabels As Integer, t As Integer
     Dim name As String, names As String = Nothing
 
-
-
+    Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        grabber = New Capture(0)
+        grabber.QueryFrame()
+        Timer1.Start()
+        button1.Enabled = False
+    End Sub
 
     Public Sub New()
         InitializeComponent()
@@ -50,14 +54,9 @@ Public Class frmAttendance
         End Try
     End Sub
 
-    Private Sub button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles button1.Click
-        grabber = New Capture(0)
-        grabber.QueryFrame()
-        Timer1.Start()
-        button1.Enabled = False
-    End Sub
 
-    Private Sub button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles button2.Click
+
+    Private Sub button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             'Trained face counter
             ContTrain = ContTrain + 1

@@ -23,32 +23,15 @@ Partial Class frmAttendance
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.imageBox1 = New Emgu.CV.UI.ImageBox()
         Me.label3 = New System.Windows.Forms.Label()
         Me.imageBoxFrameGrabber = New Emgu.CV.UI.ImageBox()
-        Me.button2 = New System.Windows.Forms.Button()
         Me.label4 = New System.Windows.Forms.Label()
         Me.label5 = New System.Windows.Forms.Label()
-        Me.groupBox1 = New System.Windows.Forms.GroupBox()
-        Me.label1 = New System.Windows.Forms.Label()
-        Me.textBox1 = New System.Windows.Forms.TextBox()
         Me.button1 = New System.Windows.Forms.Button()
         Me.label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label6 = New System.Windows.Forms.Label()
-        CType(Me.imageBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imageBoxFrameGrabber, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.groupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'imageBox1
-        '
-        Me.imageBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.imageBox1.Location = New System.Drawing.Point(11, 18)
-        Me.imageBox1.Name = "imageBox1"
-        Me.imageBox1.Size = New System.Drawing.Size(106, 89)
-        Me.imageBox1.TabIndex = 5
-        Me.imageBox1.TabStop = False
         '
         'label3
         '
@@ -71,16 +54,6 @@ Partial Class frmAttendance
         Me.imageBoxFrameGrabber.TabIndex = 19
         Me.imageBoxFrameGrabber.TabStop = False
         '
-        'button2
-        '
-        Me.button2.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.button2.Location = New System.Drawing.Point(11, 158)
-        Me.button2.Name = "button2"
-        Me.button2.Size = New System.Drawing.Size(106, 31)
-        Me.button2.TabIndex = 3
-        Me.button2.Text = "Train"
-        Me.button2.UseVisualStyleBackColor = True
-        '
         'label4
         '
         Me.label4.AutoSize = True
@@ -102,36 +75,6 @@ Partial Class frmAttendance
         Me.label5.Size = New System.Drawing.Size(197, 15)
         Me.label5.TabIndex = 25
         Me.label5.Text = "Persons present in the scene:"
-        '
-        'groupBox1
-        '
-        Me.groupBox1.Controls.Add(Me.label1)
-        Me.groupBox1.Controls.Add(Me.textBox1)
-        Me.groupBox1.Controls.Add(Me.imageBox1)
-        Me.groupBox1.Controls.Add(Me.button2)
-        Me.groupBox1.Location = New System.Drawing.Point(727, 236)
-        Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(126, 210)
-        Me.groupBox1.TabIndex = 20
-        Me.groupBox1.TabStop = False
-        Me.groupBox1.Text = "Training: "
-        '
-        'label1
-        '
-        Me.label1.AutoSize = True
-        Me.label1.Location = New System.Drawing.Point(8, 119)
-        Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(41, 13)
-        Me.label1.TabIndex = 8
-        Me.label1.Text = "Name: "
-        '
-        'textBox1
-        '
-        Me.textBox1.Location = New System.Drawing.Point(11, 135)
-        Me.textBox1.Name = "textBox1"
-        Me.textBox1.Size = New System.Drawing.Size(103, 20)
-        Me.textBox1.TabIndex = 7
-        Me.textBox1.Text = "----"
         '
         'button1
         '
@@ -156,16 +99,6 @@ Partial Class frmAttendance
         'Timer1
         '
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(727, 203)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(130, 16)
-        Me.Label6.TabIndex = 24
-        Me.Label6.Text = "Face Recognition"
-        '
         'frmAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -175,32 +108,20 @@ Partial Class frmAttendance
         Me.Controls.Add(Me.imageBoxFrameGrabber)
         Me.Controls.Add(Me.label4)
         Me.Controls.Add(Me.label5)
-        Me.Controls.Add(Me.groupBox1)
         Me.Controls.Add(Me.button1)
         Me.Controls.Add(Me.label2)
-        Me.Controls.Add(Me.Label6)
         Me.name = "frmAttendance"
         Me.Text = "frmAttendance"
-        CType(Me.imageBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imageBoxFrameGrabber, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.groupBox1.ResumeLayout(False)
-        Me.groupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Private WithEvents imageBox1 As Emgu.CV.UI.ImageBox
     Private WithEvents label3 As Label
     Private WithEvents imageBoxFrameGrabber As Emgu.CV.UI.ImageBox
-    Private WithEvents button2 As Button
     Private WithEvents label4 As Label
     Private WithEvents label5 As Label
-    Private WithEvents groupBox1 As GroupBox
-    Private WithEvents label1 As Label
-    Private WithEvents textBox1 As TextBox
     Private WithEvents button1 As Button
     Private WithEvents label2 As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label6 As Label
 End Class

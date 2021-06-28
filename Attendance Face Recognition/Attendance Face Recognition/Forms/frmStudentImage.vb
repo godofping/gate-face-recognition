@@ -34,13 +34,14 @@ Public Class frmStudentImage
         Next
     End Sub
 
-
-    Private Sub frmStudentImage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        grabber = New Capture(0)
-        grabber.QueryFrame()
-        Timer1.Start()
-        getImages()
-        ManageDGV()
+    Sub showResult(ByVal bol As Boolean)
+        If bol Then
+            MsgBox("Success")
+            getImages()
+            ManageDGV()
+        Else
+            MsgBox("Failed")
+        End If
     End Sub
 
     Public Sub New(_student As Student)
@@ -49,6 +50,14 @@ Public Class frmStudentImage
         face = New HaarCascade("haarcascade_frontalface_default.xml")
         student = _student
         lblFor.Text = "For " & student._Last_name & ", " & student._First_name & " " & student._Middle_name
+    End Sub
+
+    Private Sub frmStudentImage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        grabber = New Capture(0)
+        grabber.QueryFrame()
+        Timer1.Start()
+        getImages()
+        ManageDGV()
     End Sub
 
     Private Sub btnTakePicture_Click(sender As Object, e As EventArgs) Handles btnTakePicture.Click
@@ -83,12 +92,24 @@ Public Class frmStudentImage
             If (studentimage.Create(studentimage)) Then
                 MsgBox("PICTURE ADDED")
                 getImages()
+                ManageDGV()
             End If
 
             ibDetectedFace.Image = Nothing
         Catch
             MsgBox("SOMETHING WRONG")
         End Try
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo)
+
+        If result = DialogResult.Yes Then
+            studentimage._Student_image_id = CInt(dgv.SelectedRows(0).Cells("student_image_id").Value)
+            studentimage = studentimage.Fetch(studentimage)
+            System.IO.File.Delete(studentimage._Image_location)
+            showResult(studentimage.Delete(studentimage))
+        End If
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
