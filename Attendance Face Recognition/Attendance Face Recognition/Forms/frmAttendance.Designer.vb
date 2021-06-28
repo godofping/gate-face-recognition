@@ -27,7 +27,6 @@ Partial Class frmAttendance
         Me.imageBoxFrameGrabber = New Emgu.CV.UI.ImageBox()
         Me.label4 = New System.Windows.Forms.Label()
         Me.label5 = New System.Windows.Forms.Label()
-        Me.button1 = New System.Windows.Forms.Button()
         Me.label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.imageBoxFrameGrabber, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,16 +75,6 @@ Partial Class frmAttendance
         Me.label5.TabIndex = 25
         Me.label5.Text = "Persons present in the scene:"
         '
-        'button1
-        '
-        Me.button1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.button1.Location = New System.Drawing.Point(12, 499)
-        Me.button1.Name = "button1"
-        Me.button1.Size = New System.Drawing.Size(615, 36)
-        Me.button1.TabIndex = 18
-        Me.button1.Text = "Start"
-        Me.button1.UseVisualStyleBackColor = True
-        '
         'label2
         '
         Me.label2.AutoSize = True
@@ -108,7 +97,6 @@ Partial Class frmAttendance
         Me.Controls.Add(Me.imageBoxFrameGrabber)
         Me.Controls.Add(Me.label4)
         Me.Controls.Add(Me.label5)
-        Me.Controls.Add(Me.button1)
         Me.Controls.Add(Me.label2)
         Me.name = "frmAttendance"
         Me.Text = "frmAttendance"
@@ -121,7 +109,6 @@ Partial Class frmAttendance
     Private WithEvents imageBoxFrameGrabber As Emgu.CV.UI.ImageBox
     Private WithEvents label4 As Label
     Private WithEvents label5 As Label
-    Private WithEvents button1 As Button
     Private WithEvents label2 As Label
     Friend WithEvents Timer1 As Timer
 End Class

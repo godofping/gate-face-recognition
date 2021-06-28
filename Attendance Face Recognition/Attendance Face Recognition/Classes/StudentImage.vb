@@ -51,10 +51,10 @@ Public Class StudentImage
         End If
     End Function
 
-    Public Function FetchAll(ByVal keyword As String) As DataTable
+
+    Public Function FetchAll() As DataTable
         Using cmd = New SqlCommand()
             cmd.CommandText = "select * from student_image"
-            cmd.Parameters.AddWithValue("@keyword", keyword & "%")
             Return Helper.executeQuery(cmd)
         End Using
     End Function

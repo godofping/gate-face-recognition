@@ -11,7 +11,6 @@ Public Class frmAttendance
     Dim currentFrame As Image(Of Bgr, [Byte])
     Dim grabber As Capture
     Dim face As HaarCascade
-    Dim eye As HaarCascade
     Dim font As New MCvFont(CvEnum.FONT.CV_FONT_HERSHEY_TRIPLEX, 0.5, 0.5)
     Dim result As Image(Of Gray, Byte), TrainedFace As Image(Of Gray, Byte) = Nothing
     Dim gray As Image(Of Gray, Byte) = Nothing
@@ -20,84 +19,26 @@ Public Class frmAttendance
     Dim NamePersons As New List(Of String)()
     Dim ContTrain As Integer, NumLabels As Integer, t As Integer
     Dim name As String, names As String = Nothing
+    Dim studentimage As New StudentImage
 
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         grabber = New Capture(0)
         grabber.QueryFrame()
         Timer1.Start()
-        button1.Enabled = False
     End Sub
 
     Public Sub New()
         InitializeComponent()
         'Load haarcascades for face detection
         face = New HaarCascade("haarcascade_frontalface_default.xml")
-        'eye = new HaarCascade("haarcascade_eye.xml");
         Try
-            'Load of previus trainned faces and labels for each image
-            Dim Labelsinfo As String = File.ReadAllText("C:/StudentFaces/TrainedLabels.txt")
-            Dim Labels__1 As String() = Labelsinfo.Split("%"c)
-            NumLabels = Convert.ToInt16(Labels__1(0))
-            ContTrain = NumLabels
-            Dim LoadFaces As String
-
-            For tf As Integer = 1 To NumLabels
-                LoadFaces = "face" & tf & ".bmp"
-                trainingImages.Add(New Image(Of Gray, Byte)("C:/StudentFaces/" & LoadFaces))
-                labels.Add(Labels__1(tf))
-
-            Next
+            For Each row As DataRow In studentimage.FetchAll.Rows
+                trainingImages.Add(New Image(Of Gray, Byte)(CStr(row("image_location"))))
+                labels.Add(CStr(row("student_id")))
+            Next row
         Catch e As Exception
-            'MessageBox.Show(e.ToString());
-            MessageBox.Show("Nothing in database, please add at least a face.", "Triained faces load", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+            MsgBox("NO IMAGE IN DATABASE")
         End Try
-    End Sub
-
-
-
-    Private Sub button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Try
-            'Trained face counter
-            ContTrain = ContTrain + 1
-
-            'Get a gray frame from capture device
-            gray = grabber.QueryGrayFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
-
-            'Face Detector
-            Dim facesDetected As MCvAvgComp()() = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
-
-            'Action for each element detected
-            For Each f As MCvAvgComp In facesDetected(0)
-                TrainedFace = currentFrame.Copy(f.rect).Convert(Of Gray, Byte)()
-                Exit For
-            Next
-
-            'resize face detected image for force to compare the same size with the 
-            'test image with cubic interpolation type method
-            TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
-            trainingImages.Add(TrainedFace)
-            labels.Add(textBox1.Text)
-
-            'Show face added in gray scale
-            imageBox1.Image = TrainedFace
-
-            'Write the number of triained faces in a file text for further load
-            File.WriteAllText("C:/StudentFaces/TrainedLabels.txt", trainingImages.ToArray().Length.ToString() & "%")
-
-            'Write the labels of triained faces in a file text for further load
-            For i As Integer = 1 To trainingImages.ToArray().Length
-                trainingImages.ToArray()(i - 1).Save("C:/StudentFaces/face" & i & ".bmp")
-                File.AppendAllText("C:/StudentFaces/TrainedLabels.txt", labels.ToArray()(i - 1) + "%")
-            Next
-
-            MessageBox.Show(textBox1.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            textBox1.Text = ""
-            imageBox1.Image = Nothing
-        Catch
-            MessageBox.Show("Enable the face detection first", "Training Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End Try
-
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
