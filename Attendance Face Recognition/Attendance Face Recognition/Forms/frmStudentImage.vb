@@ -13,6 +13,7 @@ Public Class frmStudentImage
     Dim trainingImages As New List(Of Image(Of Gray, Byte))()
     Dim student As Student
     Dim studentimage As New StudentImage
+    Dim setting As New Setting
 
     Sub getImages()
         Dim dt As DataTable = studentimage.FetchByStudentID(student)
@@ -53,11 +54,13 @@ Public Class frmStudentImage
     End Sub
 
     Private Sub frmStudentImage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        grabber = New Capture()
+        setting = setting.Fetch(setting)
+        grabber = New Capture(setting._Camera_entrance)
         grabber.QueryFrame()
         Timer1.Start()
         getImages()
         ManageDGV()
+
     End Sub
 
     Private Sub btnTakePicture_Click(sender As Object, e As EventArgs) Handles btnTakePicture.Click

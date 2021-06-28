@@ -16,18 +16,16 @@ Public Class frmAttendance
     Dim ContTrain As Integer
     Dim nameEntrance As String
     Dim nameExit As String
-
     Dim studentimage As New StudentImage
-
     Dim attendance As New Attendance
-
+    Dim setting As New Setting
 
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        grabberEntrance = New Capture(0)
+        setting = setting.Fetch(setting)
+        grabberEntrance = New Capture(setting._Camera_entrance)
         grabberEntrance.QueryFrame()
         timerCameraEntrance.Start()
-
-        grabberExit = New Capture(2)
+        grabberExit = New Capture(setting._Camera_exit)
         grabberExit.QueryFrame()
         timerCameraExit.Start()
     End Sub
@@ -179,7 +177,7 @@ Public Class frmAttendance
                 labels.Add(CStr(row("student_id")))
             Next row
         Catch e As Exception
-            MsgBox("NO IMAGE IN DATABASE")
+            MsgBox("No image in the database")
         End Try
     End Sub
 
