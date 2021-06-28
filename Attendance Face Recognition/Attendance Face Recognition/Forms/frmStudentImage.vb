@@ -24,6 +24,8 @@ Public Class frmStudentImage
             drow("image") = File.ReadAllBytes(drow("image_location").ToString)
         Next
         dgv.DataSource = dt
+
+        lblTotalImages.Text = "Number of Images: " & dt.Rows.Count
     End Sub
 
     Sub ManageDGV()

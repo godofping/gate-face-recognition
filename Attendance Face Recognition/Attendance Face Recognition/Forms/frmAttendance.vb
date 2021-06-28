@@ -20,6 +20,36 @@ Public Class frmAttendance
     Dim attendance As New Attendance
     Dim setting As New Setting
 
+    Private Sub SendSMS()
+        Dim attendance_unsent As New Attendance
+        Dim student As New Student
+        Dim dt As DataTable = attendance_unsent.FetchByUnsentSMS()
+
+        If dt.Rows.Count > 0 Then
+
+            Dim msg As String = "Error"
+
+            attendance_unsent._Attendance_id = Convert.ToInt32(dt.Rows(0)("attendance_id"))
+            attendance_unsent = attendance_unsent.Fetch(attendance_unsent)
+
+            student._Student_id = attendance_unsent._Student_id
+            student = student.Fetch(student)
+
+            If attendance_unsent._Attendance_type.Equals("ENTRANCE") Then
+                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has entered the school at " & attendance_unsent._Attendance_datetime & " .Message from SKSU Face Attendance SMS Terminal"
+            ElseIf attendance_unsent._Attendance_type.Equals("EXIT") Then
+                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has exited the school at " & attendance_unsent._Attendance_datetime & " .Message from SKSU Face Attendance SMS Terminal"
+            End If
+
+
+            'If Helper.SendSMS(setting._Broadband_com, student._Contact_person_phone_number, msg) Then
+            '    attendance_unsent._Issent = 1
+            '    attendance_unsent.Update(attendance_unsent)
+            'End If
+
+        End If
+    End Sub
+
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setting = setting.Fetch(setting)
         grabberEntrance = New Capture(setting._Camera_entrance)
@@ -28,6 +58,7 @@ Public Class frmAttendance
         grabberExit = New Capture(setting._Camera_exit)
         grabberExit.QueryFrame()
         timerCameraExit.Start()
+        timerSMS.Start()
     End Sub
 
     Private Sub timerCameraEntrance_Tick(sender As Object, e As EventArgs) Handles timerCameraEntrance.Tick
@@ -156,6 +187,13 @@ Public Class frmAttendance
 
         'Show the faces procesed and recognized
         IBExit.Image = currentFrameExit
+    End Sub
+
+    Private Sub timerSMS_Tick(sender As Object, e As EventArgs) Handles timerSMS.Tick
+
+        Dim smsThread = New System.Threading.Thread(AddressOf SendSMS)
+
+        smsThread.Start()
     End Sub
 
     Private Sub frmAttendance_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown

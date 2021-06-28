@@ -23,33 +23,24 @@ Partial Class frmStudentImage
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.ibCamera = New Emgu.CV.UI.ImageBox()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv = New System.Windows.Forms.DataGridView()
         Me.btnTakePicture = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.ibDetectedFace = New Emgu.CV.UI.ImageBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lblFor = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
-        CType(Me.ibCamera, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ibDetectedFace = New Emgu.CV.UI.ImageBox()
+        Me.ibCamera = New Emgu.CV.UI.ImageBox()
+        Me.lblTotalImages = New System.Windows.Forms.Label()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ibDetectedFace, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ibCamera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ibCamera
-        '
-        Me.ibCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ibCamera.Location = New System.Drawing.Point(31, 166)
-        Me.ibCamera.Name = "ibCamera"
-        Me.ibCamera.Size = New System.Drawing.Size(446, 340)
-        Me.ibCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ibCamera.TabIndex = 20
-        Me.ibCamera.TabStop = False
         '
         'dgv
         '
@@ -57,37 +48,37 @@ Partial Class frmStudentImage
         Me.dgv.AllowUserToDeleteRows = False
         Me.dgv.AllowUserToResizeColumns = False
         Me.dgv.AllowUserToResizeRows = False
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
         Me.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv.EnableHeadersVisualStyles = False
         Me.dgv.Location = New System.Drawing.Point(501, 65)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
         Me.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.White
-        Me.dgv.RowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.dgv.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv.Size = New System.Drawing.Size(394, 484)
         Me.dgv.TabIndex = 21
@@ -130,17 +121,6 @@ Partial Class frmStudentImage
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = False
         '
-        'ibDetectedFace
-        '
-        Me.ibDetectedFace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ibDetectedFace.Location = New System.Drawing.Point(358, 12)
-        Me.ibDetectedFace.Name = "ibDetectedFace"
-        Me.ibDetectedFace.Size = New System.Drawing.Size(93, 82)
-        Me.ibDetectedFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ibDetectedFace.TabIndex = 25
-        Me.ibDetectedFace.TabStop = False
-        Me.ibDetectedFace.Visible = False
-        '
         'Timer1
         '
         '
@@ -168,12 +148,44 @@ Partial Class frmStudentImage
         Me.btnClose.Text = "x"
         Me.btnClose.UseVisualStyleBackColor = False
         '
+        'ibDetectedFace
+        '
+        Me.ibDetectedFace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ibDetectedFace.Location = New System.Drawing.Point(358, 12)
+        Me.ibDetectedFace.Name = "ibDetectedFace"
+        Me.ibDetectedFace.Size = New System.Drawing.Size(93, 82)
+        Me.ibDetectedFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ibDetectedFace.TabIndex = 25
+        Me.ibDetectedFace.TabStop = False
+        Me.ibDetectedFace.Visible = False
+        '
+        'ibCamera
+        '
+        Me.ibCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ibCamera.Location = New System.Drawing.Point(31, 166)
+        Me.ibCamera.Name = "ibCamera"
+        Me.ibCamera.Size = New System.Drawing.Size(446, 340)
+        Me.ibCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ibCamera.TabIndex = 20
+        Me.ibCamera.TabStop = False
+        '
+        'lblTotalImages
+        '
+        Me.lblTotalImages.AutoSize = True
+        Me.lblTotalImages.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalImages.Location = New System.Drawing.Point(665, 42)
+        Me.lblTotalImages.Name = "lblTotalImages"
+        Me.lblTotalImages.Size = New System.Drawing.Size(31, 20)
+        Me.lblTotalImages.TabIndex = 29
+        Me.lblTotalImages.Text = "For"
+        '
         'frmStudentImage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(907, 561)
+        Me.Controls.Add(Me.lblTotalImages)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblFor)
         Me.Controls.Add(Me.ibDetectedFace)
@@ -187,9 +199,9 @@ Partial Class frmStudentImage
         Me.Name = "frmStudentImage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmStudentImage"
-        CType(Me.ibCamera, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ibDetectedFace, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ibCamera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -204,4 +216,5 @@ Partial Class frmStudentImage
     Friend WithEvents Timer1 As Timer
     Friend WithEvents lblFor As Label
     Friend WithEvents btnClose As Button
+    Friend WithEvents lblTotalImages As Label
 End Class

@@ -39,4 +39,6 @@
     Private Sub mnSettings_Click(sender As Object, e As EventArgs) Handles mnSettings.Click
         Helper.ChangePanelDisplay(frmSettings, pnlMain)
     End Sub
+
+
 End Class

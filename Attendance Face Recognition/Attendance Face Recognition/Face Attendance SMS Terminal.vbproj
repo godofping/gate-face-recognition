@@ -129,16 +129,10 @@
     <Compile Include="Forms\frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmReportAttendanceOfStudentsByDailyWeeklyMonthly.Designer.vb">
-      <DependentUpon>frmReportAttendanceOfStudentsByDailyWeeklyMonthly.vb</DependentUpon>
+    <Compile Include="Forms\frmReportAttendanceOfStudent.Designer.vb">
+      <DependentUpon>frmReportAttendanceOfStudent.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmReportAttendanceOfStudentsByDailyWeeklyMonthly.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmReportAttendanceOfStudentsGradeLevel.Designer.vb">
-      <DependentUpon>frmReportAttendanceOfStudentsGradeLevel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmReportAttendanceOfStudentsGradeLevel.vb">
+    <Compile Include="Forms\frmReportAttendanceOfStudent.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmSettings.Designer.vb">
@@ -199,8 +193,8 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmReportAttendanceOfStudentsByDailyWeeklyMonthly.resx">
-      <DependentUpon>frmReportAttendanceOfStudentsByDailyWeeklyMonthly.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmReportAttendanceOfStudent.resx">
+      <DependentUpon>frmReportAttendanceOfStudent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.vb</DependentUpon>

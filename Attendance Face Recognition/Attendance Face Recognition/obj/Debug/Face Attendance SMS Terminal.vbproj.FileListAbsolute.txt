@@ -43,7 +43,6 @@ C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Fac
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\AxShockwaveFlashObjects.dll
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\ShockwaveFlashObjects.dll
-C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmReportAttendanceOfStudentsByDailyWeeklyMonthly.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettings.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\AForge.dll
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\AForge.Video.DirectShow.dll
@@ -51,3 +50,4 @@ C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Fac
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\AForge.xml
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\AForge.Video.xml
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\bin\Debug\AForge.Video.DirectShow.xml
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmReportAttendanceOfStudent.resources

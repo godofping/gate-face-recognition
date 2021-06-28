@@ -27,10 +27,9 @@ Partial Class frmMain
         Me.mnStudents = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnAdmins = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnReports = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnAttendanceHistory = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnStudentList = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnLogout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnAttendanceOfStudents = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -69,31 +68,18 @@ Partial Class frmMain
         '
         'mnReports
         '
-        Me.mnReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnAttendanceHistory, Me.mnStudentList})
+        Me.mnReports.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnAttendanceOfStudents})
         Me.mnReports.ForeColor = System.Drawing.Color.White
         Me.mnReports.Name = "mnReports"
         Me.mnReports.Size = New System.Drawing.Size(91, 26)
         Me.mnReports.Text = "Reports"
         '
-        'mnAttendanceHistory
+        'mnAttendanceOfStudents
         '
-        Me.mnAttendanceHistory.Name = "mnAttendanceHistory"
-        Me.mnAttendanceHistory.Size = New System.Drawing.Size(522, 26)
-        Me.mnAttendanceHistory.Text = "Attendance of Students (daily, weekly, monthly)"
-        Me.mnAttendanceHistory.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        '
-        'mnStudentList
-        '
-        Me.mnStudentList.Name = "mnStudentList"
-        Me.mnStudentList.Size = New System.Drawing.Size(522, 26)
-        Me.mnStudentList.Text = "Attendance of Students (grade level)"
-        '
-        'mnLogout
-        '
-        Me.mnLogout.ForeColor = System.Drawing.Color.White
-        Me.mnLogout.Name = "mnLogout"
-        Me.mnLogout.Size = New System.Drawing.Size(87, 26)
-        Me.mnLogout.Text = "Logout"
+        Me.mnAttendanceOfStudents.Name = "mnAttendanceOfStudents"
+        Me.mnAttendanceOfStudents.Size = New System.Drawing.Size(302, 26)
+        Me.mnAttendanceOfStudents.Text = "Attendance of Students"
+        Me.mnAttendanceOfStudents.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
         'mnSettings
         '
@@ -101,6 +87,13 @@ Partial Class frmMain
         Me.mnSettings.Name = "mnSettings"
         Me.mnSettings.Size = New System.Drawing.Size(92, 26)
         Me.mnSettings.Text = "Settings"
+        '
+        'mnLogout
+        '
+        Me.mnLogout.ForeColor = System.Drawing.Color.White
+        Me.mnLogout.Name = "mnLogout"
+        Me.mnLogout.Size = New System.Drawing.Size(87, 26)
+        Me.mnLogout.Text = "Logout"
         '
         'frmMain
         '
@@ -128,8 +121,7 @@ Partial Class frmMain
     Friend WithEvents mnStudents As ToolStripMenuItem
     Friend WithEvents mnAdmins As ToolStripMenuItem
     Friend WithEvents mnReports As ToolStripMenuItem
-    Friend WithEvents mnAttendanceHistory As ToolStripMenuItem
-    Friend WithEvents mnStudentList As ToolStripMenuItem
+    Friend WithEvents mnAttendanceOfStudents As ToolStripMenuItem
     Friend WithEvents mnLogout As ToolStripMenuItem
     Friend WithEvents mnSettings As ToolStripMenuItem
 End Class

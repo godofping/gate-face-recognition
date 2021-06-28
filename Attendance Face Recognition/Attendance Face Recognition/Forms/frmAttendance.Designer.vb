@@ -34,6 +34,7 @@ Partial Class frmAttendance
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
+        Me.timerSMS = New System.Windows.Forms.Timer(Me.components)
         CType(Me.IBEntrance, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IBExit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTop.SuspendLayout()
@@ -143,6 +144,10 @@ Partial Class frmAttendance
         Me.lblDateTime.TabIndex = 26
         Me.lblDateTime.Text = "Loading system.."
         '
+        'timerSMS
+        '
+        Me.timerSMS.Interval = 5000
+        '
         'frmAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -181,4 +186,5 @@ Partial Class frmAttendance
     Friend WithEvents Label1 As Label
     Friend WithEvents lblDateTime As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents timerSMS As Timer
 End Class
