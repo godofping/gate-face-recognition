@@ -31,9 +31,9 @@ Partial Class frmAttendance
         Me.timerCameraExit = New System.Windows.Forms.Timer(Me.components)
         Me.pnlBottom = New System.Windows.Forms.Panel()
         Me.pnlTop = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.IBEntrance, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IBExit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTop.SuspendLayout()
@@ -89,6 +89,9 @@ Partial Class frmAttendance
         Me.IBExit.TabIndex = 22
         Me.IBExit.TabStop = False
         '
+        'timerCameraExit
+        '
+        '
         'pnlBottom
         '
         Me.pnlBottom.BackColor = System.Drawing.Color.Green
@@ -108,6 +111,16 @@ Partial Class frmAttendance
         Me.pnlTop.Name = "pnlTop"
         Me.pnlTop.Size = New System.Drawing.Size(1366, 113)
         Me.pnlTop.TabIndex = 25
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Attendance_Face_Recognition.My.Resources.Resources.sksu_logo
+        Me.PictureBox1.Location = New System.Drawing.Point(1248, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(115, 107)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 22
+        Me.PictureBox1.TabStop = False
         '
         'Label1
         '
@@ -130,16 +143,6 @@ Partial Class frmAttendance
         Me.lblDateTime.TabIndex = 26
         Me.lblDateTime.Text = "Label4"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Attendance_Face_Recognition.My.Resources.Resources.sksu_logo
-        Me.PictureBox1.Location = New System.Drawing.Point(1248, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(115, 107)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 22
-        Me.PictureBox1.TabStop = False
-        '
         'frmAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -155,7 +158,7 @@ Partial Class frmAttendance
         Me.Controls.Add(Me.IBEntrance)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
-        Me.name = "frmAttendance"
+        Me.Name = "frmAttendance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmAttendance"
         CType(Me.IBEntrance, System.ComponentModel.ISupportInitialize).EndInit()
