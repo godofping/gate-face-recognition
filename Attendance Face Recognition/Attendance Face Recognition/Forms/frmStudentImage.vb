@@ -28,7 +28,7 @@ Public Class frmStudentImage
     Sub ManageDGV()
         Helper.DGVRenameColumns(dgv, "#", "Student ID", "Image Location", "Image")
         Helper.DGVFillWeights(dgv, New Object() {0, 3}, New Integer() {25, 75})
-        Helper.DGVHiddenColumns(dgv, "student_id", "image_location")
+        Helper.DGVHiddenColumns(dgv, "student_image_id", "student_id", "image_location")
         For i = 0 To dgv.Rows.Count - 1
             dgv.Rows(i).Height = 100
         Next
@@ -110,6 +110,10 @@ Public Class frmStudentImage
             System.IO.File.Delete(studentimage._Image_location)
             showResult(studentimage.Delete(studentimage))
         End If
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick

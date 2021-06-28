@@ -88,6 +88,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Attendance.vb" />
     <Compile Include="Classes\EigenObjectRecognizer.vb" />
     <Compile Include="Classes\Helper.vb" />
     <Compile Include="Classes\Admin.vb" />
@@ -193,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sksu logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,11 +1,5 @@
-﻿Imports System.Diagnostics
+﻿Imports Emgu.CV
 Imports Emgu.CV.Structure
-Imports Emgu.CV
-Imports Emgu.CV.CvEnum
-Imports System.Collections.Generic
-Imports System.Drawing
-Imports System.Windows.Forms
-Imports System.IO
 
 Public Class frmAttendance
     Dim currentFrame As Image(Of Bgr, [Byte])
@@ -17,14 +11,28 @@ Public Class frmAttendance
     Dim trainingImages As New List(Of Image(Of Gray, Byte))()
     Dim labels As New List(Of String)()
     Dim NamePersons As New List(Of String)()
-    Dim ContTrain As Integer, NumLabels As Integer, t As Integer
+    Dim ContTrain As Integer
     Dim name As String, names As String = Nothing
     Dim studentimage As New StudentImage
+    Dim time As Integer = 0
+    Dim oldlabel As String
+
+
+    Dim attendance As New Attendance
+
 
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         grabber = New Capture(0)
         grabber.QueryFrame()
-        Timer1.Start()
+        timerCameraEntrance.Start()
+    End Sub
+
+    Private Sub frmAttendance_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If (e.KeyCode = Keys.F12) Then
+            frmLogin.Show()
+            grabber.Dispose()
+            Me.Close()
+        End If
     End Sub
 
     Public Sub New()
@@ -41,11 +49,8 @@ Public Class frmAttendance
         End Try
     End Sub
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        label3.Text = "0"
-
-        NamePersons.Add("")
-
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles timerCameraEntrance.Tick
+        lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
         'Get the current frame form capture device
         currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
@@ -58,10 +63,9 @@ Public Class frmAttendance
 
         'Action for each element detected
         For Each f As MCvAvgComp In facesDetected(0)
-            t = t + 1
             result = currentFrame.Copy(f.rect).Convert(Of Gray, Byte)().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
             'draw the face detected in the 0th (gray) channel with blue color
-            currentFrame.Draw(f.rect, New Bgr(Color.Red), 2)
+            currentFrame.Draw(f.rect, New Bgr(Color.Green), 2)
 
 
             If trainingImages.ToArray().Length <> 0 Then
@@ -73,28 +77,44 @@ Public Class frmAttendance
 
                 name = recognizer.Recognize(result)
 
-                'Draw the label for each face detected and recognized
 
-                currentFrame.Draw(name, font, New Point(f.rect.X - 2, f.rect.Y - 2), color:=New Bgr(Color.LightGreen))
             End If
 
-            NamePersons(t - 1) = name
-            NamePersons.Add("")
-
-            label3.Text = facesDetected(0).Length.ToString()
         Next
-        t = 0
 
-        'Names concatenation of persons recognized
-        For nnn As Integer = 0 To facesDetected(0).Length - 1
-            names = NamePersons(nnn)
-        Next
+
+        If Not name Is Nothing Then
+            If Integer.TryParse(name, True) Then
+                timerCameraEntrance.Stop()
+
+                attendance._Student_id = CInt(name)
+                If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
+
+                    attendance._Attendance_type = "ENTRANCE"
+                    attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                    attendance._Issent = 0
+                    attendance.Create(attendance)
+
+                Else
+                    If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
+
+                    ElseIf attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
+                        attendance._Attendance_type = "ENTRANCE"
+                        attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                        attendance._Issent = 0
+                        attendance.Create(attendance)
+
+                    End If
+                End If
+
+            End If
+        End If
+
         'Show the faces procesed and recognized
-        imageBoxFrameGrabber.Image = currentFrame
-        label4.Text = names
-        names = ""
-        'Clear the list(vector) of names
-        NamePersons.Clear()
+        IBEntrance.Image = currentFrame
+
+        timerCameraEntrance.Start()
     End Sub
+
 
 End Class

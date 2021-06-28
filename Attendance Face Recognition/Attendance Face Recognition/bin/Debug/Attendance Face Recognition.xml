@@ -22,6 +22,11 @@ Attendance Face Recognition
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Attendance_Face_Recognition.My.Resources.Resources.sksu_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Attendance_Face_Recognition.EigenObjectRecognizer.EigenImages">
  <summary>
  Get the eigen vectors that form the eigen space
