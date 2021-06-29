@@ -19,7 +19,10 @@ Public Class frmAttendance
     Dim studentimage As New StudentImage
     Dim attendance As New Attendance
     Dim setting As New Setting
-
+    Dim counterEntrance As Integer
+    Dim counterExit As Integer
+    Dim canScanEntrance As Integer = 1
+    Dim canScanExit As Integer = 1
     Private Sub SendSMS()
         Dim attendance_unsent As New Attendance
         Dim student As New Student
@@ -36,9 +39,9 @@ Public Class frmAttendance
             student = student.Fetch(student)
 
             If attendance_unsent._Attendance_type.Equals("ENTRANCE") Then
-                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has entered the school at " & attendance_unsent._Attendance_datetime & " .Message from SKSU Face Attendance SMS Terminal"
+                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has entered the school at " & attendance_unsent._Attendance_datetime & " . Message from SKSU Face Attendance SMS Terminal"
             ElseIf attendance_unsent._Attendance_type.Equals("EXIT") Then
-                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has exited the school at " & attendance_unsent._Attendance_datetime & " .Message from SKSU Face Attendance SMS Terminal"
+                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has exited the school at " & attendance_unsent._Attendance_datetime & " . Message from SKSU Face Attendance SMS Terminal"
             End If
 
 
@@ -88,31 +91,36 @@ Public Class frmAttendance
                 Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
                 nameEntrance = recognizer.Recognize(resultEntrance)
-                Console.WriteLine("Entrance: " & nameEntrance)
 
             End If
 
         Next
 
 
-        If Not nameEntrance Is Nothing Then
+        If Not nameEntrance Is Nothing And canScanEntrance = 1 Then
             If Integer.TryParse(nameEntrance, True) Then
-
+                Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                 attendance._Student_id = CInt(nameEntrance)
                 If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
                     attendance._Attendance_type = "ENTRANCE"
-                    attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                    attendance._Attendance_datetime = currentdatetime
                     attendance._Issent = 0
                     attendance.Create(attendance)
                 Else
-                    If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
-                        attendance._Attendance_type = "EXIT"
-                        attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                        attendance._Issent = 0
-                        attendance.Create(attendance)
-                    ElseIf attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
+                    If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
+                        Dim student As New Student
+                        student._Student_id = CInt(nameEntrance)
+                        student = student.Fetch(student)
+                        lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
+                        "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                        "Grade Level: " & student._Grade_level & vbCrLf &
+                        "Time: " & currentdatetime
+
+                        timerStudentInformationEntrance.Start()
+                        pnlStudentInformationEntrance.Visible = True
+
                         attendance._Attendance_type = "ENTRANCE"
-                        attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                        attendance._Attendance_datetime = currentdatetime
                         attendance._Issent = 0
                         attendance.Create(attendance)
                     End If
@@ -159,29 +167,27 @@ Public Class frmAttendance
         Next
 
 
-        If Not nameExit Is Nothing Then
+        If Not nameExit Is Nothing And canScanExit = 1 Then
             If Integer.TryParse(nameExit, True) Then
-
+                Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                 attendance._Student_id = CInt(nameExit)
-                If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
-                    attendance._Attendance_type = "ENTRANCE"
+                If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
+                    Dim student As New Student
+                    student._Student_id = CInt(nameExit)
+                    student = student.Fetch(student)
+                    lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
+                        "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                        "Grade Level: " & student._Grade_level & vbCrLf &
+                        "Time: " & currentdatetime
+
+                    timerStudentInformationExit.Start()
+                    pnlStudentInformationExit.Visible = True
+
+                    attendance._Attendance_type = "EXIT"
                     attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                     attendance._Issent = 0
                     attendance.Create(attendance)
-                Else
-                    If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
-                        attendance._Attendance_type = "EXIT"
-                        attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                        attendance._Issent = 0
-                        attendance.Create(attendance)
-                    ElseIf attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
-                        attendance._Attendance_type = "ENTRANCE"
-                        attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                        attendance._Issent = 0
-                        attendance.Create(attendance)
-                    End If
                 End If
-
             End If
         End If
 
@@ -194,6 +200,30 @@ Public Class frmAttendance
         Dim smsThread = New System.Threading.Thread(AddressOf SendSMS)
 
         smsThread.Start()
+    End Sub
+
+    Private Sub timerStudentInformationEntrance_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationEntrance.Tick
+        counterEntrance = counterEntrance + 1
+        canScanEntrance = 0
+
+        If counterEntrance = 5 Then
+            pnlStudentInformationEntrance.Visible = False
+            timerStudentInformationEntrance.Stop()
+            counterEntrance = 0
+            canScanEntrance = 1
+        End If
+    End Sub
+
+    Private Sub timerStudentInformationExit_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationExit.Tick
+        counterExit = counterExit + 1
+        canScanExit = 0
+
+        If counterExit = 5 Then
+            pnlStudentInformationExit.Visible = False
+            timerStudentInformationExit.Stop()
+            counterExit = 0
+            canScanExit = 1
+        End If
     End Sub
 
     Private Sub frmAttendance_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown

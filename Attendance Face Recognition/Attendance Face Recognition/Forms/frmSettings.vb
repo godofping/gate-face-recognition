@@ -50,7 +50,7 @@ Public Class frmSettings
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        setting._Broadband_com = cbBroadbandCom.SelectedText
+        setting._Broadband_com = cbBroadbandCom.Text
         setting._Camera_entrance = cbCameraEntrance.SelectedIndex
         setting._Camera_exit = cbCameraExit.SelectedIndex
         If setting.Update(setting) Then

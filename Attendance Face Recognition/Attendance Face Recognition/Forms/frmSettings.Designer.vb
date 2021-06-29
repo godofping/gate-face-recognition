@@ -43,7 +43,7 @@ Partial Class frmSettings
         Me.cbCameraExit.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.cbCameraExit.FormattingEnabled = True
         Me.cbCameraExit.ItemHeight = 20
-        Me.cbCameraExit.Location = New System.Drawing.Point(382, 211)
+        Me.cbCameraExit.Location = New System.Drawing.Point(382, 269)
         Me.cbCameraExit.Name = "cbCameraExit"
         Me.cbCameraExit.Size = New System.Drawing.Size(265, 28)
         Me.cbCameraExit.TabIndex = 44
@@ -52,11 +52,11 @@ Partial Class frmSettings
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(136, 219)
+        Me.Label3.Location = New System.Drawing.Point(235, 272)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(149, 20)
+        Me.Label3.Size = New System.Drawing.Size(120, 20)
         Me.Label3.TabIndex = 45
-        Me.Label3.Text = "CAMERA FOR EXIT *"
+        Me.Label3.Text = "Camera for Exit"
         '
         'cbCameraEntrance
         '
@@ -66,7 +66,7 @@ Partial Class frmSettings
         Me.cbCameraEntrance.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.cbCameraEntrance.FormattingEnabled = True
         Me.cbCameraEntrance.ItemHeight = 20
-        Me.cbCameraEntrance.Location = New System.Drawing.Point(382, 158)
+        Me.cbCameraEntrance.Location = New System.Drawing.Point(382, 190)
         Me.cbCameraEntrance.Name = "cbCameraEntrance"
         Me.cbCameraEntrance.Size = New System.Drawing.Size(265, 28)
         Me.cbCameraEntrance.TabIndex = 42
@@ -75,11 +75,11 @@ Partial Class frmSettings
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(136, 166)
+        Me.Label2.Location = New System.Drawing.Point(192, 198)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(197, 20)
+        Me.Label2.Size = New System.Drawing.Size(163, 20)
         Me.Label2.TabIndex = 43
-        Me.Label2.Text = "CAMERA FOR ENTRANCE *"
+        Me.Label2.Text = "Camera for Entrance"
         '
         'btnSave
         '
@@ -88,7 +88,7 @@ Partial Class frmSettings
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(382, 254)
+        Me.btnSave.Location = New System.Drawing.Point(382, 341)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(122, 37)
         Me.btnSave.TabIndex = 40
@@ -122,17 +122,17 @@ Partial Class frmSettings
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(136, 118)
+        Me.Label4.Location = New System.Drawing.Point(173, 113)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(207, 20)
+        Me.Label4.Size = New System.Drawing.Size(182, 20)
         Me.Label4.TabIndex = 38
-        Me.Label4.Text = "GSM MODULE COM PORT *"
+        Me.Label4.Text = "GSM Module COM Port"
         '
         'lblBroadbandCom
         '
         Me.lblBroadbandCom.AutoSize = True
         Me.lblBroadbandCom.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBroadbandCom.Location = New System.Drawing.Point(653, 113)
+        Me.lblBroadbandCom.Location = New System.Drawing.Point(379, 141)
         Me.lblBroadbandCom.Name = "lblBroadbandCom"
         Me.lblBroadbandCom.Size = New System.Drawing.Size(26, 18)
         Me.lblBroadbandCom.TabIndex = 46
@@ -142,7 +142,7 @@ Partial Class frmSettings
         '
         Me.lblCameraEntrance.AutoSize = True
         Me.lblCameraEntrance.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCameraEntrance.Location = New System.Drawing.Point(653, 166)
+        Me.lblCameraEntrance.Location = New System.Drawing.Point(379, 221)
         Me.lblCameraEntrance.Name = "lblCameraEntrance"
         Me.lblCameraEntrance.Size = New System.Drawing.Size(26, 18)
         Me.lblCameraEntrance.TabIndex = 47
@@ -152,7 +152,7 @@ Partial Class frmSettings
         '
         Me.lblCameraExit.AutoSize = True
         Me.lblCameraExit.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCameraExit.Location = New System.Drawing.Point(653, 219)
+        Me.lblCameraExit.Location = New System.Drawing.Point(379, 300)
         Me.lblCameraExit.Name = "lblCameraExit"
         Me.lblCameraExit.Size = New System.Drawing.Size(26, 18)
         Me.lblCameraExit.TabIndex = 48
