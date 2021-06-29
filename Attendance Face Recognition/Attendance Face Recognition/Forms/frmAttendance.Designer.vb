@@ -145,7 +145,7 @@ Partial Class frmAttendance
         '
         Me.lblDateTime.AutoSize = True
         Me.lblDateTime.Font = New System.Drawing.Font("Century Gothic", 32.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateTime.ForeColor = System.Drawing.Color.Green
+        Me.lblDateTime.ForeColor = System.Drawing.Color.Olive
         Me.lblDateTime.Location = New System.Drawing.Point(79, 135)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.Size = New System.Drawing.Size(369, 49)
@@ -181,7 +181,7 @@ Partial Class frmAttendance
         '
         'pnlStudentInformationExit
         '
-        Me.pnlStudentInformationExit.BackColor = System.Drawing.Color.Green
+        Me.pnlStudentInformationExit.BackColor = System.Drawing.Color.DarkGreen
         Me.pnlStudentInformationExit.Controls.Add(Me.lblStudentExit)
         Me.pnlStudentInformationExit.Location = New System.Drawing.Point(628, 383)
         Me.pnlStudentInformationExit.Name = "pnlStudentInformationExit"

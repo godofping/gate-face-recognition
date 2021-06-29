@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class crAttendanceOfStudentsDailyWeeklyMonthly
+Public Class crAttendanceOfStudents
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class crAttendanceOfStudentsDailyWeeklyMonthly
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "crAttendanceOfStudentsDailyWeeklyMonthly.rpt"
+            Return "crAttendanceOfStudents.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class crAttendanceOfStudentsDailyWeeklyMonthly
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Face_Attendance_SMS_Terminal.crAttendanceOfStudentsDailyWeeklyMonthly.rpt"
+            Return "Face_Attendance_SMS_Terminal.crAttendanceOfStudents.rpt"
         End Get
         Set
             'Do nothing
@@ -91,10 +91,50 @@ Public Class crAttendanceOfStudentsDailyWeeklyMonthly
             Return Me.ReportDefinition.Sections(4)
         End Get
     End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_title() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(0)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_date_from() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(1)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_date_to() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(2)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_grade_level() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(3)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_date_span() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(4)
+        End Get
+    End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedcrAttendanceOfStudentsDailyWeeklyMonthly
+Public Class CachedcrAttendanceOfStudents
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +176,7 @@ Public Class CachedcrAttendanceOfStudentsDailyWeeklyMonthly
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As crAttendanceOfStudentsDailyWeeklyMonthly = New crAttendanceOfStudentsDailyWeeklyMonthly()
+        Dim rpt As crAttendanceOfStudents = New crAttendanceOfStudents()
         rpt.Site = Me.Site
         Return rpt
     End Function

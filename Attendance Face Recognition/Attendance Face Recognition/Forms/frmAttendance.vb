@@ -205,7 +205,7 @@ Public Class frmAttendance
         canScanEntrance = 0
         timerCameraEntrance.Stop()
 
-        If counterEntrance = 10 Then
+        If counterEntrance = 4 Then
             pnlStudentInformationEntrance.Visible = False
             timerStudentInformationEntrance.Stop()
             counterEntrance = 0
@@ -219,7 +219,7 @@ Public Class frmAttendance
         canScanExit = 0
         timerCameraExit.Stop()
 
-        If counterExit = 10 Then
+        If counterExit = 4 Then
             pnlStudentInformationExit.Visible = False
             timerStudentInformationExit.Stop()
             counterExit = 0

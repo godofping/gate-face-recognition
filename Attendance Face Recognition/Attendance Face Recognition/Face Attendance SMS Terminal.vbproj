@@ -176,10 +176,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Reports\crAttendanceOfStudentsDailyWeeklyMonthly.vb">
+    <Compile Include="Reports\crAttendanceOfStudents.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crAttendanceOfStudentsDailyWeeklyMonthly.rpt</DependentUpon>
+      <DependentUpon>crAttendanceOfStudents.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -214,9 +214,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\crAttendanceOfStudentsDailyWeeklyMonthly.rpt">
+    <EmbeddedResource Include="Reports\crAttendanceOfStudents.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crAttendanceOfStudentsDailyWeeklyMonthly.vb</LastGenOutput>
+      <LastGenOutput>crAttendanceOfStudents.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

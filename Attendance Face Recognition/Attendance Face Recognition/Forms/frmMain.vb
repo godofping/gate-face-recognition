@@ -40,5 +40,7 @@
         Helper.ChangePanelDisplay(frmSettings, pnlMain)
     End Sub
 
-
+    Private Sub mnAttendanceOfStudents_Click(sender As Object, e As EventArgs) Handles mnAttendanceOfStudents.Click
+        Helper.ChangePanelDisplay(frmReportAttendanceOfStudent, pnlMain)
+    End Sub
 End Class
