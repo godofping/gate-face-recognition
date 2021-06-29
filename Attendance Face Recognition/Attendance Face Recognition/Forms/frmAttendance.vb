@@ -17,7 +17,6 @@ Public Class frmAttendance
     Dim nameEntrance As String
     Dim nameExit As String
     Dim studentimage As New StudentImage
-    Dim attendance As New Attendance
     Dim setting As New Setting
     Dim counterEntrance As Integer
     Dim counterExit As Integer
@@ -91,15 +90,16 @@ Public Class frmAttendance
                 Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
                 nameEntrance = recognizer.Recognize(resultEntrance)
-
+                Console.WriteLine("Entrance " & nameEntrance)
             End If
 
         Next
 
 
-        If Not nameEntrance Is Nothing And canScanEntrance = 1 Then
-            If Integer.TryParse(nameEntrance, True) Then
+        If Not nameEntrance Is Nothing Then
+            If Integer.TryParse(nameEntrance, True) And canScanEntrance = 1 Then
                 Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                Dim attendance As New Attendance
                 attendance._Student_id = CInt(nameEntrance)
                 If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
                     attendance._Attendance_type = "ENTRANCE"
@@ -125,12 +125,12 @@ Public Class frmAttendance
                         attendance.Create(attendance)
                     End If
                 End If
-
             End If
         End If
 
         'Show the faces procesed and recognized
         IBEntrance.Image = currentFrameEntrance
+        nameEntrance = Nothing
     End Sub
 
     Private Sub timerCameraExit_Tick(sender As Object, e As EventArgs) Handles timerCameraExit.Tick
@@ -151,7 +151,6 @@ Public Class frmAttendance
             'draw the face detected in the 0th (gray) channel with blue color
             currentFrameExit.Draw(f.rect, New Bgr(Color.Green), 2)
 
-
             If trainingImages.ToArray().Length <> 0 Then
                 'TermCriteria for face recognition with numbers of trained images like maxIteration
                 Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
@@ -160,16 +159,16 @@ Public Class frmAttendance
                 Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
                 nameExit = recognizer.Recognize(resultExit)
-                Console.WriteLine("Exit: " & nameExit)
+                Console.WriteLine("Exit " & nameExit)
 
             End If
 
         Next
 
-
-        If Not nameExit Is Nothing And canScanExit = 1 Then
-            If Integer.TryParse(nameExit, True) Then
+        If Not nameExit Is Nothing Then
+            If Integer.TryParse(nameExit, True) And canScanExit = 1 Then
                 Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                Dim attendance As New Attendance
                 attendance._Student_id = CInt(nameExit)
                 If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
                     Dim student As New Student
@@ -193,36 +192,39 @@ Public Class frmAttendance
 
         'Show the faces procesed and recognized
         IBExit.Image = currentFrameExit
+        nameExit = Nothing
     End Sub
 
     Private Sub timerSMS_Tick(sender As Object, e As EventArgs) Handles timerSMS.Tick
-
         Dim smsThread = New System.Threading.Thread(AddressOf SendSMS)
-
         smsThread.Start()
     End Sub
 
     Private Sub timerStudentInformationEntrance_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationEntrance.Tick
         counterEntrance = counterEntrance + 1
         canScanEntrance = 0
+        timerCameraEntrance.Stop()
 
-        If counterEntrance = 5 Then
+        If counterEntrance = 10 Then
             pnlStudentInformationEntrance.Visible = False
             timerStudentInformationEntrance.Stop()
             counterEntrance = 0
             canScanEntrance = 1
+            timerCameraEntrance.Start()
         End If
     End Sub
 
     Private Sub timerStudentInformationExit_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationExit.Tick
         counterExit = counterExit + 1
         canScanExit = 0
+        timerCameraExit.Stop()
 
-        If counterExit = 5 Then
+        If counterExit = 10 Then
             pnlStudentInformationExit.Visible = False
             timerStudentInformationExit.Stop()
             counterExit = 0
             canScanExit = 1
+            timerCameraExit.Start()
         End If
     End Sub
 
