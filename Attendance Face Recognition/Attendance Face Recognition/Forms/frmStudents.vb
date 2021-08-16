@@ -1,6 +1,7 @@
 ﻿Public Class frmStudents
 
     Dim student As New Student
+    Dim studentimage As New StudentImage
     Dim s As String
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
@@ -77,12 +78,14 @@
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         enableForm(True)
+        Button1.Visible = False
         clearForm()
         s = "ADD"
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         enableForm(True)
+        Button1.Visible = True
         clearForm()
         getData()
         s = "UPDATE"
@@ -94,7 +97,8 @@
         If result = DialogResult.Yes Then
             student._Student_id = CInt(dgv.SelectedRows(0).Cells("student_id").Value)
             student = student.Fetch(student)
-
+            studentimage._Student_id = CInt(dgv.SelectedRows(0).Cells("student_id").Value)
+            studentimage.DeleteByStudent(studentimage)
             showResult(student.Delete(student))
         End If
     End Sub

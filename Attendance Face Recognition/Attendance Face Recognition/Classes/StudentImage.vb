@@ -84,4 +84,12 @@ Public Class StudentImage
         End Using
     End Function
 
+    Public Function DeleteByStudent(ByVal studentimage As StudentImage) As Boolean
+        Using cmd = New SqlCommand()
+            cmd.CommandText = "delete from student_image where student_id = @student_id"
+            cmd.Parameters.AddWithValue("@student_id", studentimage._Student_id)
+            Return Helper.executeNonQueryBool(cmd)
+        End Using
+    End Function
+
 End Class

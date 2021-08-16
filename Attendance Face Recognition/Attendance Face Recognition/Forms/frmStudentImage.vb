@@ -79,25 +79,29 @@ Public Class frmStudentImage
                 Exit For
             Next
 
-            'resize face detected image for force to compare the same size with the 
-            'test image with cubic interpolation type method
-            TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            Try
+                'resize face detected image for force to compare the same size with the 
+                'test image with cubic interpolation type method
+                TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
-            'Show face added in gray scale
-            ibDetectedFace.Image = TrainedFace
+                'Show face added in gray scale
+                ibDetectedFace.Image = TrainedFace
 
 
-            Dim byt As Byte() = System.Text.Encoding.UTF8.GetBytes(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"))
-            Dim RandomName = Convert.ToBase64String(byt)
-            TrainedFace.Save("C:/StudentFaces/" & RandomName & ".bmp")
+                Dim byt As Byte() = System.Text.Encoding.UTF8.GetBytes(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"))
+                Dim RandomName = Convert.ToBase64String(byt)
+                TrainedFace.Save("C:/StudentFaces/" & RandomName & ".bmp")
 
-            studentimage._Student_id = student._Student_id
-            studentimage._Image_location = "C:/StudentFaces/" & RandomName & ".bmp"
+                studentimage._Student_id = student._Student_id
+                studentimage._Image_location = "C:/StudentFaces/" & RandomName & ".bmp"
 
-            If (studentimage.Create(studentimage)) Then
-                getImages()
-                ManageDGV()
-            End If
+                If (studentimage.Create(studentimage)) Then
+                    getImages()
+                    ManageDGV()
+                End If
+            Catch ex As Exception
+                MsgBox("No face detected")
+            End Try
 
             ibDetectedFace.Image = Nothing
         Catch

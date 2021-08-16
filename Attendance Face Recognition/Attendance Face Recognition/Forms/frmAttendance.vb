@@ -44,10 +44,10 @@ Public Class frmAttendance
             End If
 
 
-            'If Helper.SendSMS(setting._Broadband_com, student._Contact_person_phone_number, msg) Then
-            '    attendance_unsent._Issent = 1
-            '    attendance_unsent.Update(attendance_unsent)
-            'End If
+            If Helper.SendSMS(setting._Broadband_com, student._Contact_person_phone_number, msg) Then
+                attendance_unsent._Issent = 1
+                attendance_unsent.Update(attendance_unsent)
+            End If
 
         End If
     End Sub
