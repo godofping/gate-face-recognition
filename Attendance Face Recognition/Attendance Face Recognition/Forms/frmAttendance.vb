@@ -40,13 +40,13 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(640, 480, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Convert it to Grayscale
             grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
 
             'Face Detector
-            Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
+            Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.1, 3, 0, New Size(20, 20))
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetectedEntrance(0)
@@ -63,7 +63,7 @@ Public Class frmAttendance
                     Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
                     nameEntrance = recognizer.Recognize(resultEntrance)
-                    Console.WriteLine("Entrance " & nameEntrance)
+
                 End If
 
             Next
@@ -76,6 +76,18 @@ Public Class frmAttendance
                         Dim attendance As New Attendance
                         attendance._Student_id = CInt(nameEntrance)
                         If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
+
+                            Dim student As New Student
+                            student._Student_id = CInt(nameEntrance)
+                            student = student.Fetch(student)
+                            lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                "Grade Level: " & student._Grade_level & vbCrLf &
+                                "Time: " & currentdatetime
+
+                            timerStudentInformationEntrance.Start()
+                            pnlStudentInformationEntrance.Visible = True
+
                             attendance._Attendance_type = "ENTRANCE"
                             attendance._Attendance_datetime = currentdatetime
                             attendance._Issent = 0
@@ -116,13 +128,13 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-            currentFrameExit = grabberExit.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            currentFrameExit = grabberExit.QueryFrame().Resize(640, 480, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Convert it to Grayscale
             grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
 
             'Face Detector
-            Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
+            Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.1, 3, 0, New Size(20, 20))
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetectedExit(0)
@@ -138,8 +150,6 @@ Public Class frmAttendance
                     Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
                     nameExit = recognizer.Recognize(resultExit)
-                    Console.WriteLine("Exit " & nameExit)
-
                 End If
 
             Next
@@ -151,21 +161,21 @@ Public Class frmAttendance
                         Dim attendance As New Attendance
                         attendance._Student_id = CInt(nameExit)
                         If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
-                            Dim student As New Student
-                            student._Student_id = CInt(nameExit)
-                            student = student.Fetch(student)
-                            lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
-                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                                "Grade Level: " & student._Grade_level & vbCrLf &
-                                "Time: " & currentdatetime
+                            'Dim student As New Student
+                            'student._Student_id = CInt(nameExit)
+                            'student = student.Fetch(student)
+                            'lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
+                            '    "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                            '    "Grade Level: " & student._Grade_level & vbCrLf &
+                            '    "Time: " & currentdatetime
 
-                            timerStudentInformationExit.Start()
-                            pnlStudentInformationExit.Visible = True
+                            'timerStudentInformationExit.Start()
+                            'pnlStudentInformationExit.Visible = True
 
-                            attendance._Attendance_type = "EXIT"
-                            attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                            attendance._Issent = 0
-                            attendance.Create(attendance)
+                            'attendance._Attendance_type = "EXIT"
+                            'attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                            'attendance._Issent = 0
+                            'attendance.Create(attendance)
                         End If
                     End If
                 End If
