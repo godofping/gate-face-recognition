@@ -34,7 +34,7 @@
             End If
 
 
-            If Helper.SendSMS(setting._Broadband_com, student._Contact_person_phone_number, msg) Then
+            If Helper.SendSMS(Setting._Broadband_com, student._Contact_person_phone_number, msg) Then
                 attendance_unsent._Issent = 1
                 attendance_unsent.Update(attendance_unsent)
             End If
@@ -81,7 +81,6 @@
     End Sub
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        setting = setting.Fetch(setting)
         timerSMS.Start()
     End Sub
 End Class
