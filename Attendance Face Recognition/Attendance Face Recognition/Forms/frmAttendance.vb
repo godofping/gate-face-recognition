@@ -161,21 +161,21 @@ Public Class frmAttendance
                         Dim attendance As New Attendance
                         attendance._Student_id = CInt(nameExit)
                         If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
-                            'Dim student As New Student
-                            'student._Student_id = CInt(nameExit)
-                            'student = student.Fetch(student)
-                            'lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
-                            '    "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                            '    "Grade Level: " & student._Grade_level & vbCrLf &
-                            '    "Time: " & currentdatetime
+                            Dim student As New Student
+                            student._Student_id = CInt(nameExit)
+                            student = student.Fetch(student)
+                            lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                "Grade Level: " & student._Grade_level & vbCrLf &
+                                "Time: " & currentdatetime
 
-                            'timerStudentInformationExit.Start()
-                            'pnlStudentInformationExit.Visible = True
+                            timerStudentInformationExit.Start()
+                            pnlStudentInformationExit.Visible = True
 
-                            'attendance._Attendance_type = "EXIT"
-                            'attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                            'attendance._Issent = 0
-                            'attendance.Create(attendance)
+                            attendance._Attendance_type = "EXIT"
+                            attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                            attendance._Issent = 0
+                            attendance.Create(attendance)
                         End If
                     End If
                 End If
