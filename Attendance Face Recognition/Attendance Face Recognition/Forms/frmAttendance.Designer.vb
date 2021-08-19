@@ -34,7 +34,6 @@ Partial Class frmAttendance
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
-        Me.timerSMS = New System.Windows.Forms.Timer(Me.components)
         Me.pnlStudentInformationEntrance = New System.Windows.Forms.Panel()
         Me.lblStudentEntrance = New System.Windows.Forms.Label()
         Me.timerStudentInformationEntrance = New System.Windows.Forms.Timer(Me.components)
@@ -152,10 +151,6 @@ Partial Class frmAttendance
         Me.lblDateTime.TabIndex = 26
         Me.lblDateTime.Text = "Loading system.."
         '
-        'timerSMS
-        '
-        Me.timerSMS.Interval = 5000
-        '
         'pnlStudentInformationEntrance
         '
         Me.pnlStudentInformationEntrance.BackColor = System.Drawing.Color.Green
@@ -244,7 +239,6 @@ Partial Class frmAttendance
     Friend WithEvents Label1 As Label
     Friend WithEvents lblDateTime As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents timerSMS As Timer
     Friend WithEvents pnlStudentInformationEntrance As Panel
     Friend WithEvents lblStudentEntrance As Label
     Friend WithEvents timerStudentInformationEntrance As Timer

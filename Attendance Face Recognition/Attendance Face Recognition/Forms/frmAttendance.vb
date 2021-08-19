@@ -22,35 +22,7 @@ Public Class frmAttendance
     Dim counterExit As Integer
     Dim canScanEntrance As Integer = 1
     Dim canScanExit As Integer = 1
-    Private Sub SendSMS()
-        Dim attendance_unsent As New Attendance
-        Dim student As New Student
-        Dim dt As DataTable = attendance_unsent.FetchByUnsentSMS()
 
-        If dt.Rows.Count > 0 Then
-
-            Dim msg As String = "Error"
-
-            attendance_unsent._Attendance_id = Convert.ToInt32(dt.Rows(0)("attendance_id"))
-            attendance_unsent = attendance_unsent.Fetch(attendance_unsent)
-
-            student._Student_id = attendance_unsent._Student_id
-            student = student.Fetch(student)
-
-            If attendance_unsent._Attendance_type.Equals("ENTRANCE") Then
-                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has entered the school at " & attendance_unsent._Attendance_datetime & " . Message from SKSU Face Attendance SMS Terminal"
-            ElseIf attendance_unsent._Attendance_type.Equals("EXIT") Then
-                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has exited the school at " & attendance_unsent._Attendance_datetime & " . Message from SKSU Face Attendance SMS Terminal"
-            End If
-
-
-            If Helper.SendSMS(setting._Broadband_com, student._Contact_person_phone_number, msg) Then
-                attendance_unsent._Issent = 1
-                attendance_unsent.Update(attendance_unsent)
-            End If
-
-        End If
-    End Sub
 
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setting = setting.Fetch(setting)
@@ -60,178 +32,196 @@ Public Class frmAttendance
         grabberExit = New Capture(setting._Camera_exit)
         grabberExit.QueryFrame()
         timerCameraExit.Start()
-        timerSMS.Start()
+
     End Sub
 
     Private Sub timerCameraEntrance_Tick(sender As Object, e As EventArgs) Handles timerCameraEntrance.Tick
-        lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
+        Try
+            lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
-        'Get the current frame form capture device
-        currentFrameEntrance = grabberEntrance.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            'Get the current frame form capture device
+            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
-        'Convert it to Grayscale
-        grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
+            'Convert it to Grayscale
+            grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
 
-        'Face Detector
-        Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
+            'Face Detector
+            Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
 
-        'Action for each element detected
-        For Each f As MCvAvgComp In facesDetectedEntrance(0)
-            resultEntrance = currentFrameEntrance.Copy(f.rect).Convert(Of Gray, Byte)().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
-            'draw the face detected in the 0th (gray) channel with blue color
-            currentFrameEntrance.Draw(f.rect, New Bgr(Color.Green), 2)
-
-
-            If trainingImages.ToArray().Length <> 0 Then
-                'TermCriteria for face recognition with numbers of trained images like maxIteration
-                Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
-
-                'Eigen face recognizer
-                Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
-
-                nameEntrance = recognizer.Recognize(resultEntrance)
-                Console.WriteLine("Entrance " & nameEntrance)
-            End If
-
-        Next
+            'Action for each element detected
+            For Each f As MCvAvgComp In facesDetectedEntrance(0)
+                resultEntrance = currentFrameEntrance.Copy(f.rect).Convert(Of Gray, Byte)().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+                'draw the face detected in the 0th (gray) channel with blue color
+                currentFrameEntrance.Draw(f.rect, New Bgr(Color.Green), 2)
 
 
-        If Not nameEntrance Is Nothing Then
-            If Integer.TryParse(nameEntrance, True) And canScanEntrance = 1 Then
-                Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                Dim attendance As New Attendance
-                attendance._Student_id = CInt(nameEntrance)
-                If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
-                    attendance._Attendance_type = "ENTRANCE"
-                    attendance._Attendance_datetime = currentdatetime
-                    attendance._Issent = 0
-                    attendance.Create(attendance)
-                Else
-                    If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
-                        Dim student As New Student
-                        student._Student_id = CInt(nameEntrance)
-                        student = student.Fetch(student)
-                        lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
-                        "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                        "Grade Level: " & student._Grade_level & vbCrLf &
-                        "Time: " & currentdatetime
+                If trainingImages.ToArray().Length <> 0 Then
+                    'TermCriteria for face recognition with numbers of trained images like maxIteration
+                    Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
 
-                        timerStudentInformationEntrance.Start()
-                        pnlStudentInformationEntrance.Visible = True
+                    'Eigen face recognizer
+                    Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
-                        attendance._Attendance_type = "ENTRANCE"
-                        attendance._Attendance_datetime = currentdatetime
-                        attendance._Issent = 0
-                        attendance.Create(attendance)
+                    nameEntrance = recognizer.Recognize(resultEntrance)
+                    Console.WriteLine("Entrance " & nameEntrance)
+                End If
+
+            Next
+
+
+            If Not nameEntrance Is Nothing Then
+                If nameEntrance.Length > 0 Then
+                    If Integer.TryParse(nameEntrance, True) And canScanEntrance = 1 Then
+                        Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                        Dim attendance As New Attendance
+                        attendance._Student_id = CInt(nameEntrance)
+                        If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
+                            attendance._Attendance_type = "ENTRANCE"
+                            attendance._Attendance_datetime = currentdatetime
+                            attendance._Issent = 0
+                            attendance.Create(attendance)
+                        Else
+                            If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
+                                Dim student As New Student
+                                student._Student_id = CInt(nameEntrance)
+                                student = student.Fetch(student)
+                                lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                "Grade Level: " & student._Grade_level & vbCrLf &
+                                "Time: " & currentdatetime
+
+                                timerStudentInformationEntrance.Start()
+                                pnlStudentInformationEntrance.Visible = True
+
+                                attendance._Attendance_type = "ENTRANCE"
+                                attendance._Attendance_datetime = currentdatetime
+                                attendance._Issent = 0
+                                attendance.Create(attendance)
+                            End If
+                        End If
                     End If
                 End If
             End If
-        End If
 
-        'Show the faces procesed and recognized
-        IBEntrance.Image = currentFrameEntrance
-        nameEntrance = Nothing
+            'Show the faces procesed and recognized
+            IBEntrance.Image = currentFrameEntrance
+            nameEntrance = Nothing
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub timerCameraExit_Tick(sender As Object, e As EventArgs) Handles timerCameraExit.Tick
-        lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
+        Try
+            lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
-        'Get the current frame form capture device
-        currentFrameExit = grabberExit.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            'Get the current frame form capture device
+            currentFrameExit = grabberExit.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
-        'Convert it to Grayscale
-        grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
+            'Convert it to Grayscale
+            grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
 
-        'Face Detector
-        Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
+            'Face Detector
+            Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
 
-        'Action for each element detected
-        For Each f As MCvAvgComp In facesDetectedExit(0)
-            resultExit = currentFrameExit.Copy(f.rect).Convert(Of Gray, Byte)().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
-            'draw the face detected in the 0th (gray) channel with blue color
-            currentFrameExit.Draw(f.rect, New Bgr(Color.Green), 2)
+            'Action for each element detected
+            For Each f As MCvAvgComp In facesDetectedExit(0)
+                resultExit = currentFrameExit.Copy(f.rect).Convert(Of Gray, Byte)().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+                'draw the face detected in the 0th (gray) channel with blue color
+                currentFrameExit.Draw(f.rect, New Bgr(Color.Green), 2)
 
-            If trainingImages.ToArray().Length <> 0 Then
-                'TermCriteria for face recognition with numbers of trained images like maxIteration
-                Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
+                If trainingImages.ToArray().Length <> 0 Then
+                    'TermCriteria for face recognition with numbers of trained images like maxIteration
+                    Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
 
-                'Eigen face recognizer
-                Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
+                    'Eigen face recognizer
+                    Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
 
-                nameExit = recognizer.Recognize(resultExit)
-                Console.WriteLine("Exit " & nameExit)
+                    nameExit = recognizer.Recognize(resultExit)
+                    Console.WriteLine("Exit " & nameExit)
 
-            End If
+                End If
 
-        Next
+            Next
 
-        If Not nameExit Is Nothing Then
-            If Integer.TryParse(nameExit, True) And canScanExit = 1 Then
-                Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                Dim attendance As New Attendance
-                attendance._Student_id = CInt(nameExit)
-                If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
-                    Dim student As New Student
-                    student._Student_id = CInt(nameExit)
-                    student = student.Fetch(student)
-                    lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
-                        "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                        "Grade Level: " & student._Grade_level & vbCrLf &
-                        "Time: " & currentdatetime
+            If Not nameExit Is Nothing Then
+                If nameExit.Length > 0 Then
+                    If Integer.TryParse(nameExit, True) And canScanExit = 1 Then
+                        Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                        Dim attendance As New Attendance
+                        attendance._Student_id = CInt(nameExit)
+                        If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
+                            Dim student As New Student
+                            student._Student_id = CInt(nameExit)
+                            student = student.Fetch(student)
+                            lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                "Grade Level: " & student._Grade_level & vbCrLf &
+                                "Time: " & currentdatetime
 
-                    timerStudentInformationExit.Start()
-                    pnlStudentInformationExit.Visible = True
+                            timerStudentInformationExit.Start()
+                            pnlStudentInformationExit.Visible = True
 
-                    attendance._Attendance_type = "EXIT"
-                    attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                    attendance._Issent = 0
-                    attendance.Create(attendance)
+                            attendance._Attendance_type = "EXIT"
+                            attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                            attendance._Issent = 0
+                            attendance.Create(attendance)
+                        End If
+                    End If
                 End If
             End If
-        End If
 
-        'Show the faces procesed and recognized
-        IBExit.Image = currentFrameExit
-        nameExit = Nothing
+            'Show the faces procesed and recognized
+            IBExit.Image = currentFrameExit
+            nameExit = Nothing
+        Catch ex As Exception
+
+        End Try
     End Sub
 
-    Private Sub timerSMS_Tick(sender As Object, e As EventArgs) Handles timerSMS.Tick
-        Dim smsThread = New System.Threading.Thread(AddressOf SendSMS)
-        smsThread.Start()
-    End Sub
+
 
     Private Sub timerStudentInformationEntrance_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationEntrance.Tick
-        counterEntrance = counterEntrance + 1
-        canScanEntrance = 0
-        timerCameraEntrance.Stop()
+        Try
+            counterEntrance = counterEntrance + 1
+            canScanEntrance = 0
+            timerCameraEntrance.Stop()
 
-        If counterEntrance = 4 Then
-            pnlStudentInformationEntrance.Visible = False
-            timerStudentInformationEntrance.Stop()
-            counterEntrance = 0
-            canScanEntrance = 1
-            timerCameraEntrance.Start()
-        End If
+            If counterEntrance = 4 Then
+                pnlStudentInformationEntrance.Visible = False
+                timerStudentInformationEntrance.Stop()
+                counterEntrance = 0
+                canScanEntrance = 1
+                timerCameraEntrance.Start()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub timerStudentInformationExit_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationExit.Tick
-        counterExit = counterExit + 1
-        canScanExit = 0
-        timerCameraExit.Stop()
+        Try
+            counterExit = counterExit + 1
+            canScanExit = 0
+            timerCameraExit.Stop()
 
-        If counterExit = 4 Then
-            pnlStudentInformationExit.Visible = False
-            timerStudentInformationExit.Stop()
-            counterExit = 0
-            canScanExit = 1
-            timerCameraExit.Start()
-        End If
+            If counterExit = 4 Then
+                pnlStudentInformationExit.Visible = False
+                timerStudentInformationExit.Stop()
+                counterExit = 0
+                canScanExit = 1
+                timerCameraExit.Start()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub frmAttendance_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If (e.KeyCode = Keys.F12) Then
             frmLogin.Show()
             grabberEntrance.Dispose()
+            grabberExit.Dispose()
             Me.Close()
         End If
     End Sub

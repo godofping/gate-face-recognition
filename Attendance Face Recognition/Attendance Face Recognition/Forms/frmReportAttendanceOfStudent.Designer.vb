@@ -81,9 +81,11 @@ Partial Class frmReportAttendanceOfStudent
         'crv
         '
         Me.crv.ActiveViewIndex = -1
+        Me.crv.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crv.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.crv.Location = New System.Drawing.Point(0, 81)
         Me.crv.Name = "crv"
         Me.crv.Size = New System.Drawing.Size(1024, 609)
