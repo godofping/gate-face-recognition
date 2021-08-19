@@ -40,7 +40,7 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(640, 480, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(160, 120, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Convert it to Grayscale
             grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
@@ -128,7 +128,7 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-            currentFrameExit = grabberExit.QueryFrame().Resize(640, 480, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            currentFrameExit = grabberExit.QueryFrame().Resize(160, 120, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Convert it to Grayscale
             grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
