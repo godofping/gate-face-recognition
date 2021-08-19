@@ -56,7 +56,7 @@ Partial Class frmAttendance
         Me.IBEntrance.Location = New System.Drawing.Point(88, 252)
         Me.IBEntrance.Name = "IBEntrance"
         Me.IBEntrance.Size = New System.Drawing.Size(466, 436)
-        Me.IBEntrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.IBEntrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.IBEntrance.TabIndex = 19
         Me.IBEntrance.TabStop = False
         '
@@ -93,7 +93,7 @@ Partial Class frmAttendance
         Me.IBExit.Location = New System.Drawing.Point(704, 252)
         Me.IBExit.Name = "IBExit"
         Me.IBExit.Size = New System.Drawing.Size(466, 436)
-        Me.IBExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.IBExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.IBExit.TabIndex = 22
         Me.IBExit.TabStop = False
         '

@@ -46,7 +46,7 @@ Public Class frmAttendance
             grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
 
             'Face Detector
-            Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.1, 3, 0, New Size(20, 20))
+            Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.1, 3, 0, New Size(100, 100))
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetectedEntrance(0)
@@ -134,7 +134,7 @@ Public Class frmAttendance
             grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
 
             'Face Detector
-            Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.1, 3, 0, New Size(20, 20))
+            Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.1, 3, 0, New Size(100, 100))
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetectedExit(0)
