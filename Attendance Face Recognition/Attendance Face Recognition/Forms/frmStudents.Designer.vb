@@ -74,7 +74,7 @@ Partial Class frmStudents
         Me.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -83,66 +83,73 @@ Partial Class frmStudents
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv.EnableHeadersVisualStyles = False
-        Me.dgv.Location = New System.Drawing.Point(12, 252)
+        Me.dgv.Location = New System.Drawing.Point(16, 310)
+        Me.dgv.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
+        Me.dgv.RowHeadersWidth = 51
         Me.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.dgv.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(1000, 427)
+        Me.dgv.Size = New System.Drawing.Size(1333, 526)
         Me.dgv.TabIndex = 31
         '
         'txtIDNumber
         '
-        Me.txtIDNumber.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDNumber.Location = New System.Drawing.Point(140, 58)
+        Me.txtIDNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIDNumber.Location = New System.Drawing.Point(187, 71)
+        Me.txtIDNumber.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtIDNumber.Name = "txtIDNumber"
-        Me.txtIDNumber.Size = New System.Drawing.Size(168, 26)
+        Me.txtIDNumber.Size = New System.Drawing.Size(223, 29)
         Me.txtIDNumber.TabIndex = 1
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(19, 61)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(25, 75)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(50, 20)
+        Me.Label12.Size = New System.Drawing.Size(54, 24)
         Me.Label12.TabIndex = 27
         Me.Label12.Text = "ID # *"
         '
         'txtContactPersonPhoneNumber
         '
-        Me.txtContactPersonPhoneNumber.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactPersonPhoneNumber.Location = New System.Drawing.Point(803, 55)
+        Me.txtContactPersonPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContactPersonPhoneNumber.Location = New System.Drawing.Point(1071, 68)
+        Me.txtContactPersonPhoneNumber.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtContactPersonPhoneNumber.Name = "txtContactPersonPhoneNumber"
-        Me.txtContactPersonPhoneNumber.Size = New System.Drawing.Size(168, 26)
+        Me.txtContactPersonPhoneNumber.Size = New System.Drawing.Size(223, 29)
         Me.txtContactPersonPhoneNumber.TabIndex = 9
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(647, 58)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(863, 71)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(148, 20)
+        Me.Label10.Size = New System.Drawing.Size(165, 24)
         Me.Label10.TabIndex = 20
         Me.Label10.Text = "Contact Person # *"
         '
         'txtContactPersonFullName
         '
-        Me.txtContactPersonFullName.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactPersonFullName.Location = New System.Drawing.Point(803, 20)
+        Me.txtContactPersonFullName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContactPersonFullName.Location = New System.Drawing.Point(1071, 25)
+        Me.txtContactPersonFullName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtContactPersonFullName.Name = "txtContactPersonFullName"
-        Me.txtContactPersonFullName.Size = New System.Drawing.Size(168, 26)
+        Me.txtContactPersonFullName.Size = New System.Drawing.Size(223, 29)
         Me.txtContactPersonFullName.TabIndex = 8
         '
         'btnSave
@@ -150,11 +157,12 @@ Partial Class frmStudents
         Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnSave.FlatAppearance.BorderSize = 0
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(762, 12)
+        Me.btnSave.Location = New System.Drawing.Point(846, 15)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(122, 37)
+        Me.btnSave.Size = New System.Drawing.Size(163, 46)
         Me.btnSave.TabIndex = 39
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -164,11 +172,12 @@ Partial Class frmStudents
         Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(63, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.btnDelete.FlatAppearance.BorderSize = 0
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(634, 12)
+        Me.btnDelete.Location = New System.Drawing.Point(1017, 16)
+        Me.btnDelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(122, 37)
+        Me.btnDelete.Size = New System.Drawing.Size(163, 46)
         Me.btnDelete.TabIndex = 38
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = False
@@ -178,80 +187,88 @@ Partial Class frmStudents
         Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.btnUpdate.FlatAppearance.BorderSize = 0
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(506, 12)
+        Me.btnUpdate.Location = New System.Drawing.Point(675, 15)
+        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(122, 37)
+        Me.btnUpdate.Size = New System.Drawing.Size(163, 46)
         Me.btnUpdate.TabIndex = 37
         Me.btnUpdate.Text = "UPDATE"
         Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'btnAdd
         '
-        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(81, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnAdd.FlatAppearance.BorderSize = 0
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(378, 12)
+        Me.btnAdd.Location = New System.Drawing.Point(504, 15)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(122, 37)
+        Me.btnAdd.Size = New System.Drawing.Size(163, 46)
         Me.btnAdd.TabIndex = 36
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = False
         '
         'txtSearch
         '
-        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.txtSearch.Location = New System.Drawing.Point(76, 220)
+        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.txtSearch.Location = New System.Drawing.Point(101, 271)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(327, 26)
+        Me.txtSearch.Size = New System.Drawing.Size(435, 29)
         Me.txtSearch.TabIndex = 35
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(647, 23)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(863, 28)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(133, 20)
+        Me.Label9.Size = New System.Drawing.Size(150, 24)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Contact Person *"
         '
         'txtMiddleName
         '
-        Me.txtMiddleName.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMiddleName.Location = New System.Drawing.Point(452, 91)
+        Me.txtMiddleName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMiddleName.Location = New System.Drawing.Point(603, 112)
+        Me.txtMiddleName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtMiddleName.Name = "txtMiddleName"
-        Me.txtMiddleName.Size = New System.Drawing.Size(168, 26)
+        Me.txtMiddleName.Size = New System.Drawing.Size(223, 29)
         Me.txtMiddleName.TabIndex = 6
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(331, 94)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(441, 116)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(118, 20)
+        Me.Label8.Size = New System.Drawing.Size(135, 24)
         Me.Label8.TabIndex = 16
         Me.Label8.Text = "Middle Name *"
         '
         'txtFirstName
         '
-        Me.txtFirstName.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFirstName.Location = New System.Drawing.Point(452, 55)
+        Me.txtFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFirstName.Location = New System.Drawing.Point(603, 68)
+        Me.txtFirstName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(168, 26)
+        Me.txtFirstName.Size = New System.Drawing.Size(223, 29)
         Me.txtFirstName.TabIndex = 5
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(331, 58)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(441, 71)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(93, 20)
+        Me.Label7.Size = New System.Drawing.Size(113, 24)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "First Name *"
         '
@@ -260,11 +277,12 @@ Partial Class frmStudents
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(191, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnCancel.FlatAppearance.BorderSize = 0
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.Location = New System.Drawing.Point(890, 12)
+        Me.btnCancel.Location = New System.Drawing.Point(1187, 15)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(122, 37)
+        Me.btnCancel.Size = New System.Drawing.Size(163, 46)
         Me.btnCancel.TabIndex = 40
         Me.btnCancel.Text = "CANCEL"
         Me.btnCancel.UseVisualStyleBackColor = False
@@ -273,9 +291,10 @@ Partial Class frmStudents
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 224)
+        Me.Label2.Location = New System.Drawing.Point(20, 276)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 18)
+        Me.Label2.Size = New System.Drawing.Size(76, 24)
         Me.Label2.TabIndex = 34
         Me.Label2.Text = "Search"
         '
@@ -284,69 +303,76 @@ Partial Class frmStudents
         Me.cbGradeLevel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.cbGradeLevel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbGradeLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbGradeLevel.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.cbGradeLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.cbGradeLevel.FormattingEnabled = True
-        Me.cbGradeLevel.ItemHeight = 20
+        Me.cbGradeLevel.ItemHeight = 24
         Me.cbGradeLevel.Items.AddRange(New Object() {"GRADE 7", "GRADE 8", "GRADE 9", "GRADE 10"})
-        Me.cbGradeLevel.Location = New System.Drawing.Point(140, 93)
+        Me.cbGradeLevel.Location = New System.Drawing.Point(187, 114)
+        Me.cbGradeLevel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbGradeLevel.Name = "cbGradeLevel"
-        Me.cbGradeLevel.Size = New System.Drawing.Size(168, 28)
+        Me.cbGradeLevel.Size = New System.Drawing.Size(223, 32)
         Me.cbGradeLevel.TabIndex = 2
         '
         'txtLastName
         '
-        Me.txtLastName.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLastName.Location = New System.Drawing.Point(452, 20)
+        Me.txtLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLastName.Location = New System.Drawing.Point(603, 25)
+        Me.txtLastName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(168, 26)
+        Me.txtLastName.Size = New System.Drawing.Size(223, 29)
         Me.txtLastName.TabIndex = 4
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(331, 23)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(441, 28)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(95, 20)
+        Me.Label5.Size = New System.Drawing.Size(111, 24)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "Last Name *"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(19, 96)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(25, 118)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 20)
+        Me.Label4.Size = New System.Drawing.Size(124, 24)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Grade Level *"
         '
         'txtStudentID
         '
-        Me.txtStudentID.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStudentID.Location = New System.Drawing.Point(140, 23)
+        Me.txtStudentID.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentID.Location = New System.Drawing.Point(187, 28)
+        Me.txtStudentID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtStudentID.Name = "txtStudentID"
         Me.txtStudentID.ReadOnly = True
-        Me.txtStudentID.Size = New System.Drawing.Size(69, 26)
+        Me.txtStudentID.Size = New System.Drawing.Size(91, 29)
         Me.txtStudentID.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(12, 13)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(16, 16)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 36)
+        Me.Label1.Size = New System.Drawing.Size(174, 42)
         Me.Label1.TabIndex = 33
         Me.Label1.Text = "Students"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(19, 26)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(25, 32)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(20, 20)
+        Me.Label3.Size = New System.Drawing.Size(20, 24)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "#"
         '
@@ -369,9 +395,11 @@ Partial Class frmStudents
         Me.gbForm.Controls.Add(Me.Label4)
         Me.gbForm.Controls.Add(Me.txtStudentID)
         Me.gbForm.Controls.Add(Me.Label3)
-        Me.gbForm.Location = New System.Drawing.Point(12, 56)
+        Me.gbForm.Location = New System.Drawing.Point(16, 69)
+        Me.gbForm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gbForm.Name = "gbForm"
-        Me.gbForm.Size = New System.Drawing.Size(1000, 144)
+        Me.gbForm.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbForm.Size = New System.Drawing.Size(1333, 177)
         Me.gbForm.TabIndex = 32
         Me.gbForm.TabStop = False
         '
@@ -380,21 +408,22 @@ Partial Class frmStudents
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(72, Byte), Integer))
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(651, 96)
+        Me.Button1.Location = New System.Drawing.Point(868, 118)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(320, 37)
+        Me.Button1.Size = New System.Drawing.Size(427, 46)
         Me.Button1.TabIndex = 37
         Me.Button1.Text = "TAKE PICTURE FOR FACE RECOGNITION"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'frmStudents
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(1024, 690)
+        Me.ClientSize = New System.Drawing.Size(1365, 849)
         Me.Controls.Add(Me.dgv)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnDelete)
@@ -408,6 +437,7 @@ Partial Class frmStudents
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.Black
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmStudents"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Students"

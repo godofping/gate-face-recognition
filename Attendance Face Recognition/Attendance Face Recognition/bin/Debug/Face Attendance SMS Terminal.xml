@@ -22,6 +22,11 @@ Face Attendance SMS Terminal
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Face_Attendance_SMS_Terminal.My.Resources.Resources.logondl">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Face_Attendance_SMS_Terminal.My.Resources.Resources.sksu_logo">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

@@ -22,7 +22,6 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -30,7 +29,6 @@ Partial Class frmLogin
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.timerSMS = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label3
@@ -112,10 +110,6 @@ Partial Class frmLogin
         Me.btnLogin.Text = "LOGIN"
         Me.btnLogin.UseVisualStyleBackColor = False
         '
-        'timerSMS
-        '
-        Me.timerSMS.Interval = 5000
-        '
         'frmLogin
         '
         Me.AcceptButton = Me.btnLogin
@@ -151,5 +145,4 @@ Partial Class frmLogin
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnLogin As Button
-    Friend WithEvents timerSMS As Timer
 End Class

@@ -231,7 +231,9 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logondl.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\sksu logo.png" />

@@ -68,10 +68,10 @@ Public Class frmStudentImage
     Private Sub btnTakePicture_Click(sender As Object, e As EventArgs) Handles btnTakePicture.Click
         Try
             'Get a gray frame from capture device
-            gray = grabber.QueryGrayFrame().Resize(160, 120, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            gray = grabber.QueryGrayFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Face Detector
-            Dim facesDetected As MCvAvgComp()() = gray.DetectHaarCascade(face, 1.1, 3, 0, New Size(20, 20))
+            Dim facesDetected As MCvAvgComp()() = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetected(0)

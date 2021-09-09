@@ -22,7 +22,35 @@ Public Class frmAttendance
     Dim counterExit As Integer
     Dim canScanEntrance As Integer = 1
     Dim canScanExit As Integer = 1
+    Private Sub SendSMS()
+        Dim attendance_unsent As New Attendance
+        Dim student As New Student
+        Dim dt As DataTable = attendance_unsent.FetchByUnsentSMS()
 
+        If dt.Rows.Count > 0 Then
+
+            Dim msg As String = "Error"
+
+            attendance_unsent._Attendance_id = Convert.ToInt32(dt.Rows(0)("attendance_id"))
+            attendance_unsent = attendance_unsent.Fetch(attendance_unsent)
+
+            student._Student_id = attendance_unsent._Student_id
+            student = student.Fetch(student)
+
+            If attendance_unsent._Attendance_type.Equals("ENTRANCE") Then
+                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has entered the school at " & attendance_unsent._Attendance_datetime & " . Message from NDL Face Attendance SMS Terminal"
+            ElseIf attendance_unsent._Attendance_type.Equals("EXIT") Then
+                msg = student._Last_name & ", " & student._First_name & " " & student._Middle_name & " has exited the school at " & attendance_unsent._Attendance_datetime & " . Message from NDL Face Attendance SMS Terminal"
+            End If
+
+
+            If Helper.SendSMS(setting._Broadband_com, student._Contact_person_phone_number, msg) Then
+                attendance_unsent._Issent = 1
+                attendance_unsent.Update(attendance_unsent)
+            End If
+
+        End If
+    End Sub
 
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setting = setting.Fetch(setting)
@@ -32,7 +60,7 @@ Public Class frmAttendance
         grabberExit = New Capture(setting._Camera_exit)
         grabberExit.QueryFrame()
         timerCameraExit.Start()
-
+        timerSMS.Start()
     End Sub
 
     Private Sub timerCameraEntrance_Tick(sender As Object, e As EventArgs) Handles timerCameraEntrance.Tick
@@ -40,21 +68,13 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-<<<<<<< HEAD
-            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(160, 120, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
-=======
             currentFrameEntrance = grabberEntrance.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
->>>>>>> parent of 20ed8c4 (tweak detector)
 
             'Convert it to Grayscale
             grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
 
             'Face Detector
-<<<<<<< HEAD
-            Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.1, 3, 0, New Size(100, 100))
-=======
             Dim facesDetectedEntrance As MCvAvgComp()() = grayEntrance.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
->>>>>>> parent of 20ed8c4 (tweak detector)
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetectedEntrance(0)
@@ -84,6 +104,19 @@ Public Class frmAttendance
                         Dim attendance As New Attendance
                         attendance._Student_id = CInt(nameEntrance)
                         If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
+
+                            Dim student As New Student
+                            student._Student_id = CInt(nameEntrance)
+                            student = student.Fetch(student)
+                            lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                "Grade Level: " & student._Grade_level & vbCrLf &
+                                "Time: " & currentdatetime
+
+                            timerStudentInformationEntrance.Start()
+                            pnlStudentInformationEntrance.Visible = True
+
+
                             attendance._Attendance_type = "ENTRANCE"
                             attendance._Attendance_datetime = currentdatetime
                             attendance._Issent = 0
@@ -124,21 +157,13 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-<<<<<<< HEAD
-            currentFrameExit = grabberExit.QueryFrame().Resize(160, 120, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
-=======
             currentFrameExit = grabberExit.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
->>>>>>> parent of 20ed8c4 (tweak detector)
 
             'Convert it to Grayscale
             grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
 
             'Face Detector
-<<<<<<< HEAD
-            Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.1, 3, 0, New Size(100, 100))
-=======
             Dim facesDetectedExit As MCvAvgComp()() = grayExit.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
->>>>>>> parent of 20ed8c4 (tweak detector)
 
             'Action for each element detected
             For Each f As MCvAvgComp In facesDetectedExit(0)
@@ -195,7 +220,10 @@ Public Class frmAttendance
         End Try
     End Sub
 
-
+    Private Sub timerSMS_Tick(sender As Object, e As EventArgs) Handles timerSMS.Tick
+        Dim smsThread = New System.Threading.Thread(AddressOf SendSMS)
+        smsThread.Start()
+    End Sub
 
     Private Sub timerStudentInformationEntrance_Tick(sender As Object, e As EventArgs) Handles timerStudentInformationEntrance.Tick
         Try
@@ -231,6 +259,15 @@ Public Class frmAttendance
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub IBExit_Click(sender As Object, e As EventArgs) Handles IBExit.Click
+
+    End Sub
+
+    Private Sub frmAttendance_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        grabberEntrance.Dispose()
+        grabberExit.Dispose()
     End Sub
 
     Private Sub frmAttendance_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
