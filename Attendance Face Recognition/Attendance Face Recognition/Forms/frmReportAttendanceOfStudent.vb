@@ -9,6 +9,7 @@ Public Class frmReportAttendanceOfStudent
     Dim date_to As String
     Dim title As String
     Dim date_span As String
+    Dim attendance_type As String
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
@@ -54,6 +55,7 @@ Public Class frmReportAttendanceOfStudent
             cr.SetParameterValue("date_from", date_from)
             cr.SetParameterValue("date_to", date_to)
             cr.SetParameterValue("grade_level", cbGradeLevel.Text)
+            cr.SetParameterValue("attendance_type", cbAttendanceType.Text)
             cr.SetParameterValue("date_span", date_span)
 
 

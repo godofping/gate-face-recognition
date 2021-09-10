@@ -36,11 +36,20 @@
         Helper.ChangePanelDisplay(frmAdmins, pnlMain)
     End Sub
 
-    Private Sub mnSettings_Click(sender As Object, e As EventArgs) Handles mnSettings.Click
-        Helper.ChangePanelDisplay(frmSettings, pnlMain)
-    End Sub
 
     Private Sub mnAttendanceOfStudents_Click(sender As Object, e As EventArgs) Handles mnAttendanceOfStudents.Click
         Helper.ChangePanelDisplay(frmReportAttendanceOfStudent, pnlMain)
+    End Sub
+
+    Private Sub CameraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CameraToolStripMenuItem.Click
+        Helper.ChangePanelDisplay(frmSettingsCamera, pnlMain)
+    End Sub
+
+    Private Sub GSMModuleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GSMModuleToolStripMenuItem.Click
+        Helper.ChangePanelDisplay(frmSettingsGSMModule, pnlMain)
+    End Sub
+
+    Private Sub PromosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PromosToolStripMenuItem.Click
+        Helper.ChangePanelDisplay(frmSettingsPromos, pnlMain)
     End Sub
 End Class

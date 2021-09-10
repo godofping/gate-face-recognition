@@ -31,13 +31,15 @@ Partial Class frmReportAttendanceOfStudent
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbGradeLevel = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbAttendanceType = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(705, 25)
+        Me.Label12.Location = New System.Drawing.Point(571, 20)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(55, 20)
         Me.Label12.TabIndex = 42
@@ -49,7 +51,7 @@ Partial Class frmReportAttendanceOfStudent
         Me.dtDate.CustomFormat = "yyyy-MM-dd"
         Me.dtDate.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtDate.Location = New System.Drawing.Point(766, 20)
+        Me.dtDate.Location = New System.Drawing.Point(632, 16)
         Me.dtDate.Name = "dtDate"
         Me.dtDate.Size = New System.Drawing.Size(111, 26)
         Me.dtDate.TabIndex = 41
@@ -61,7 +63,7 @@ Partial Class frmReportAttendanceOfStudent
         Me.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGenerate.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.White
-        Me.btnGenerate.Location = New System.Drawing.Point(893, 15)
+        Me.btnGenerate.Location = New System.Drawing.Point(782, 28)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(119, 37)
         Me.btnGenerate.TabIndex = 40
@@ -86,9 +88,9 @@ Partial Class frmReportAttendanceOfStudent
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crv.Location = New System.Drawing.Point(0, 81)
+        Me.crv.Location = New System.Drawing.Point(0, 99)
         Me.crv.Name = "crv"
-        Me.crv.Size = New System.Drawing.Size(1024, 609)
+        Me.crv.Size = New System.Drawing.Size(1024, 591)
         Me.crv.TabIndex = 45
         Me.crv.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
@@ -103,7 +105,7 @@ Partial Class frmReportAttendanceOfStudent
         Me.cbFrequency.Items.AddRange(New Object() {"Daily", "Weekly", "Monthly"})
         Me.cbFrequency.Location = New System.Drawing.Point(374, 19)
         Me.cbFrequency.Name = "cbFrequency"
-        Me.cbFrequency.Size = New System.Drawing.Size(86, 28)
+        Me.cbFrequency.Size = New System.Drawing.Size(101, 28)
         Me.cbFrequency.TabIndex = 46
         '
         'Label4
@@ -125,20 +127,44 @@ Partial Class frmReportAttendanceOfStudent
         Me.cbGradeLevel.FormattingEnabled = True
         Me.cbGradeLevel.ItemHeight = 20
         Me.cbGradeLevel.Items.AddRange(New Object() {"GRADE 7", "GRADE 8", "GRADE 9", "GRADE 10"})
-        Me.cbGradeLevel.Location = New System.Drawing.Point(601, 20)
+        Me.cbGradeLevel.Location = New System.Drawing.Point(374, 55)
         Me.cbGradeLevel.Name = "cbGradeLevel"
-        Me.cbGradeLevel.Size = New System.Drawing.Size(86, 28)
+        Me.cbGradeLevel.Size = New System.Drawing.Size(101, 28)
         Me.cbGradeLevel.TabIndex = 48
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(484, 22)
+        Me.Label2.Location = New System.Drawing.Point(257, 57)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(111, 20)
         Me.Label2.TabIndex = 49
         Me.Label2.Text = "Grade Level *"
+        '
+        'cbAttendanceType
+        '
+        Me.cbAttendanceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cbAttendanceType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cbAttendanceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbAttendanceType.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.cbAttendanceType.FormattingEnabled = True
+        Me.cbAttendanceType.ItemHeight = 20
+        Me.cbAttendanceType.Items.AddRange(New Object() {"ENTRANCE", "EXIT"})
+        Me.cbAttendanceType.Location = New System.Drawing.Point(632, 54)
+        Me.cbAttendanceType.Name = "cbAttendanceType"
+        Me.cbAttendanceType.Size = New System.Drawing.Size(111, 28)
+        Me.cbAttendanceType.TabIndex = 50
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(481, 57)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(145, 20)
+        Me.Label3.TabIndex = 51
+        Me.Label3.Text = "Attendance Type *"
         '
         'frmReportAttendanceOfStudent
         '
@@ -146,6 +172,8 @@ Partial Class frmReportAttendanceOfStudent
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1024, 690)
+        Me.Controls.Add(Me.cbAttendanceType)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbGradeLevel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbFrequency)
@@ -174,4 +202,6 @@ Partial Class frmReportAttendanceOfStudent
     Friend WithEvents Label4 As Label
     Friend WithEvents cbGradeLevel As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents cbAttendanceType As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

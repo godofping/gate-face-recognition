@@ -29,6 +29,9 @@ Partial Class frmMain
         Me.mnReports = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnAttendanceOfStudents = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CameraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GSMModuleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PromosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnLogout = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -83,10 +86,29 @@ Partial Class frmMain
         '
         'mnSettings
         '
+        Me.mnSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CameraToolStripMenuItem, Me.GSMModuleToolStripMenuItem, Me.PromosToolStripMenuItem})
         Me.mnSettings.ForeColor = System.Drawing.Color.White
         Me.mnSettings.Name = "mnSettings"
         Me.mnSettings.Size = New System.Drawing.Size(92, 26)
         Me.mnSettings.Text = "Settings"
+        '
+        'CameraToolStripMenuItem
+        '
+        Me.CameraToolStripMenuItem.Name = "CameraToolStripMenuItem"
+        Me.CameraToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
+        Me.CameraToolStripMenuItem.Text = "Camera"
+        '
+        'GSMModuleToolStripMenuItem
+        '
+        Me.GSMModuleToolStripMenuItem.Name = "GSMModuleToolStripMenuItem"
+        Me.GSMModuleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
+        Me.GSMModuleToolStripMenuItem.Text = "GSM Module"
+        '
+        'PromosToolStripMenuItem
+        '
+        Me.PromosToolStripMenuItem.Name = "PromosToolStripMenuItem"
+        Me.PromosToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
+        Me.PromosToolStripMenuItem.Text = "Promos"
         '
         'mnLogout
         '
@@ -125,4 +147,7 @@ Partial Class frmMain
     Friend WithEvents mnAttendanceOfStudents As ToolStripMenuItem
     Friend WithEvents mnLogout As ToolStripMenuItem
     Friend WithEvents mnSettings As ToolStripMenuItem
+    Friend WithEvents CameraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GSMModuleToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PromosToolStripMenuItem As ToolStripMenuItem
 End Class

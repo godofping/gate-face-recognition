@@ -135,10 +135,22 @@
     <Compile Include="Forms\frmReportAttendanceOfStudent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSettings.Designer.vb">
-      <DependentUpon>frmSettings.vb</DependentUpon>
+    <Compile Include="Forms\frmSettingsCamera.Designer.vb">
+      <DependentUpon>frmSettingsCamera.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSettings.vb">
+    <Compile Include="Forms\frmSettingsCamera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSettingsGSMModule.Designer.vb">
+      <DependentUpon>frmSettingsGSMModule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSettingsGSMModule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSettingsPromos.Designer.vb">
+      <DependentUpon>frmSettingsPromos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSettingsPromos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmStudentImage.Designer.vb">
@@ -158,6 +170,12 @@
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\test.Designer.vb">
+      <DependentUpon>test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\test.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -196,8 +214,14 @@
     <EmbeddedResource Include="Forms\frmReportAttendanceOfStudent.resx">
       <DependentUpon>frmReportAttendanceOfStudent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSettings.resx">
-      <DependentUpon>frmSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmSettingsCamera.resx">
+      <DependentUpon>frmSettingsCamera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSettingsGSMModule.resx">
+      <DependentUpon>frmSettingsGSMModule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSettingsPromos.resx">
+      <DependentUpon>frmSettingsPromos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStudentImage.resx">
       <DependentUpon>frmStudentImage.vb</DependentUpon>
@@ -207,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\test.resx">
+      <DependentUpon>test.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
