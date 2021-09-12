@@ -88,6 +88,17 @@ Public Class Attendance
         End Using
     End Function
 
+    Public Function FetchByTypeAndTime(ByVal attendance As Attendance, ByVal from As String, ByVal until As String) As DataTable
+        Using cmd = New SqlCommand()
+            cmd.CommandText = "select * from attendance_view where student_id = @student_id and attendance_type = @attendance_type and attendance_datetime between @from and @to"
+            cmd.Parameters.AddWithValue("@student_id", attendance._Student_id)
+            cmd.Parameters.AddWithValue("@attendance_type", attendance._Attendance_type)
+            cmd.Parameters.AddWithValue("@from", from)
+            cmd.Parameters.AddWithValue("@to", until)
+            Return Helper.executeQuery(cmd)
+        End Using
+    End Function
+
     Public Function Create(ByVal attendance As Attendance) As Integer
         Using cmd = New SqlCommand()
             cmd.CommandText = "insert into attendance values (@student_id, @attendance_type, @attendance_datetime, @issent); SELECT SCOPE_IDENTITY();"

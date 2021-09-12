@@ -36,4 +36,11 @@ Public Class test
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim attendance As New Attendance
+        attendance._Student_id = "2006"
+        attendance._Attendance_type = "ENTRANCE"
+        MsgBox(attendance.FetchByTypeAndTime(attendance, DateTime.Now.ToString("yyyy-MM-dd") & " 00:00:00.000", DateTime.Now.ToString("yyyy-MM-dd") & " 12:00:00.000").Rows.Count)
+
+    End Sub
 End Class
