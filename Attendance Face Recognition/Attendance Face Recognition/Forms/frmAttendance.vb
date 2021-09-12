@@ -16,12 +16,16 @@ Public Class frmAttendance
     Dim ContTrain As Integer
     Dim nameEntrance As String
     Dim nameExit As String
+    Dim nameEntranceOld As String
+    Dim nameExitOld As String
     Dim studentimage As New StudentImage
     Dim setting As New Setting
     Dim counterEntrance As Integer
     Dim counterExit As Integer
     Dim canScanEntrance As Integer = 1
     Dim canScanExit As Integer = 1
+    Dim en As Integer
+    Dim ex As Integer
     Private Sub SendSMS()
         Dim attendance_unsent As New Attendance
         Dim student As New Student
@@ -54,12 +58,17 @@ Public Class frmAttendance
 
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setting = setting.Fetch(setting)
+
         grabberEntrance = New Capture(setting._Camera_entrance)
-        grabberEntrance.QueryFrame()
-        timerCameraEntrance.Start()
         grabberExit = New Capture(setting._Camera_exit)
+
+        grabberEntrance.QueryFrame()
         grabberExit.QueryFrame()
+
+
+        timerCameraEntrance.Start()
         timerCameraExit.Start()
+
         timerSMS.Start()
     End Sub
 
@@ -68,7 +77,7 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            currentFrameEntrance = grabberEntrance.QueryFrame().Resize(640, 480, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Convert it to Grayscale
             grayEntrance = currentFrameEntrance.Convert(Of Gray, [Byte])()
@@ -88,10 +97,9 @@ Public Class frmAttendance
                     Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
 
                     'Eigen face recognizer
-                    Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
+                    Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 5000, termCrit)
 
                     nameEntrance = recognizer.Recognize(resultEntrance)
-                    Console.WriteLine("Entrance " & nameEntrance)
                 End If
 
             Next
@@ -100,47 +108,33 @@ Public Class frmAttendance
             If Not nameEntrance Is Nothing Then
                 If nameEntrance.Length > 0 Then
                     If Integer.TryParse(nameEntrance, True) And canScanEntrance = 1 Then
-                        Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                        Dim attendance As New Attendance
-                        attendance._Student_id = CInt(nameEntrance)
-                        If attendance.FetchByStudentID(attendance).Rows.Count = 0 Then
-
-                            Dim student As New Student
-                            student._Student_id = CInt(nameEntrance)
-                            student = student.Fetch(student)
-                            lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
-                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                                "Grade Level: " & student._Grade_level & vbCrLf &
-                                "Time: " & currentdatetime
-
-                            timerStudentInformationEntrance.Start()
-                            pnlStudentInformationEntrance.Visible = True
-
-
-                            attendance._Attendance_type = "ENTRANCE"
-                            attendance._Attendance_datetime = currentdatetime
-                            attendance._Issent = 0
-                            attendance.Create(attendance)
-                        Else
-                            If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("EXIT") Then
+                        If nameEntrance.Equals(nameEntranceOld) Then
+                            en = en + 1
+                            If en = 5 Then
+                                Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                                 Dim student As New Student
+                                Dim attendance As New Attendance
                                 student._Student_id = CInt(nameEntrance)
                                 student = student.Fetch(student)
                                 lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
-                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                                "Grade Level: " & student._Grade_level & vbCrLf &
-                                "Time: " & currentdatetime
+                                    "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                    "Grade Level: " & student._Grade_level & vbCrLf &
+                                    "Time: " & currentdatetime
 
                                 timerStudentInformationEntrance.Start()
                                 pnlStudentInformationEntrance.Visible = True
 
-                                attendance._Attendance_type = "ENTRANCE"
-                                attendance._Attendance_datetime = currentdatetime
-                                attendance._Issent = 0
-                                attendance.Create(attendance)
+
+                                Attendance._Attendance_type = "ENTRANCE"
+                                Attendance._Attendance_datetime = currentdatetime
+                                Attendance._Issent = 0
+                                Attendance.Create(Attendance)
+                                en = 0
                             End If
                         End If
+                        nameEntranceOld = nameEntrance
                     End If
+
                 End If
             End If
 
@@ -157,7 +151,7 @@ Public Class frmAttendance
             lblDateTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm tt")
 
             'Get the current frame form capture device
-            currentFrameExit = grabberExit.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
+            currentFrameExit = grabberExit.QueryFrame().Resize(640, 480, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
 
             'Convert it to Grayscale
             grayExit = currentFrameExit.Convert(Of Gray, [Byte])()
@@ -176,10 +170,9 @@ Public Class frmAttendance
                     Dim termCrit As New MCvTermCriteria(ContTrain, 0.001)
 
                     'Eigen face recognizer
-                    Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 3000, termCrit)
+                    Dim recognizer As New EigenObjectRecognizer(trainingImages.ToArray(), labels.ToArray(), 5000, termCrit)
 
                     nameExit = recognizer.Recognize(resultExit)
-                    Console.WriteLine("Exit " & nameExit)
 
                 End If
 
@@ -188,26 +181,31 @@ Public Class frmAttendance
             If Not nameExit Is Nothing Then
                 If nameExit.Length > 0 Then
                     If Integer.TryParse(nameExit, True) And canScanExit = 1 Then
-                        Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                        Dim attendance As New Attendance
-                        attendance._Student_id = CInt(nameExit)
-                        If attendance.FetchByStudentID(attendance).Rows(0)("attendance_type").Equals("ENTRANCE") Then
-                            Dim student As New Student
-                            student._Student_id = CInt(nameExit)
-                            student = student.Fetch(student)
-                            lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
-                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
-                                "Grade Level: " & student._Grade_level & vbCrLf &
-                                "Time: " & currentdatetime
+                        If nameExit.Equals(nameExitOld) Then
+                            en = en + 1
+                            If en = 5 Then
+                                Dim currentdatetime As String = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                                Dim attendance As New Attendance
+                                attendance._Student_id = CInt(nameExit)
+                                Dim student As New Student
+                                student._Student_id = CInt(nameExit)
+                                student = student.Fetch(student)
+                                lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                        "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                        "Grade Level: " & student._Grade_level & vbCrLf &
+                                        "Time: " & currentdatetime
 
-                            timerStudentInformationExit.Start()
-                            pnlStudentInformationExit.Visible = True
+                                timerStudentInformationExit.Start()
+                                pnlStudentInformationExit.Visible = True
 
-                            attendance._Attendance_type = "EXIT"
-                            attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                            attendance._Issent = 0
-                            attendance.Create(attendance)
+                                attendance._Attendance_type = "EXIT"
+                                attendance._Attendance_datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                                attendance._Issent = 0
+                                attendance.Create(attendance)
+                                en = 0
+                            End If
                         End If
+                        nameExitOld = nameExit
                     End If
                 End If
             End If
@@ -229,14 +227,12 @@ Public Class frmAttendance
         Try
             counterEntrance = counterEntrance + 1
             canScanEntrance = 0
-            timerCameraEntrance.Stop()
 
-            If counterEntrance = 4 Then
+            If counterEntrance = 5 Then
                 pnlStudentInformationEntrance.Visible = False
                 timerStudentInformationEntrance.Stop()
                 counterEntrance = 0
                 canScanEntrance = 1
-                timerCameraEntrance.Start()
             End If
         Catch ex As Exception
 
@@ -247,14 +243,12 @@ Public Class frmAttendance
         Try
             counterExit = counterExit + 1
             canScanExit = 0
-            timerCameraExit.Stop()
 
-            If counterExit = 4 Then
+            If counterExit = 5 Then
                 pnlStudentInformationExit.Visible = False
                 timerStudentInformationExit.Stop()
                 counterExit = 0
                 canScanExit = 1
-                timerCameraExit.Start()
             End If
         Catch ex As Exception
 

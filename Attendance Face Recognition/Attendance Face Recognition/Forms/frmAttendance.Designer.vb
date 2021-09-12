@@ -99,6 +99,7 @@ Partial Class frmAttendance
         '
         'PictureBox1
         '
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.Face_Attendance_SMS_Terminal.My.Resources.Resources.logondl
         Me.PictureBox1.Location = New System.Drawing.Point(1248, 3)
         Me.PictureBox1.Name = "PictureBox1"
@@ -134,6 +135,7 @@ Partial Class frmAttendance
         '
         'pnlStudentInformationEntrance
         '
+        Me.pnlStudentInformationEntrance.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlStudentInformationEntrance.BackColor = System.Drawing.Color.Green
         Me.pnlStudentInformationEntrance.Controls.Add(Me.lblStudentEntrance)
         Me.pnlStudentInformationEntrance.Location = New System.Drawing.Point(87, 449)
@@ -157,6 +159,7 @@ Partial Class frmAttendance
         '
         'pnlStudentInformationExit
         '
+        Me.pnlStudentInformationExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlStudentInformationExit.BackColor = System.Drawing.Color.DarkGreen
         Me.pnlStudentInformationExit.Controls.Add(Me.lblStudentExit)
         Me.pnlStudentInformationExit.Location = New System.Drawing.Point(704, 449)

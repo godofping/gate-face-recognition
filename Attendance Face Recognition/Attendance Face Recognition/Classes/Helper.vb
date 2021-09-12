@@ -312,6 +312,40 @@ Public Class Helper
 
     End Function
 
+    Public Shared Function DeleteSMS(com As String) As Boolean
+        Dim SerialPort As New System.IO.Ports.SerialPort()
+        Dim bol As Boolean
+
+        If SerialPort.IsOpen Then
+            SerialPort.Close()
+        End If
+
+        SerialPort.PortName = com
+        SerialPort.BaudRate = 9600
+        SerialPort.Parity = Parity.None
+        SerialPort.StopBits = StopBits.One
+        SerialPort.DataBits = 8
+        SerialPort.Handshake = Handshake.RequestToSend
+        SerialPort.DtrEnable = True
+        SerialPort.RtsEnable = True
+        SerialPort.NewLine = vbCrLf
+
+
+        Try
+            SerialPort.Open()
+        Catch ex As Exception
+            bol = False
+        End Try
+
+        If SerialPort.IsOpen() Then
+            SerialPort.Write("AT+CMGD=1,4" & vbCrLf)
+            MsgBox(SerialPort.ReadLine)
+
+            SerialPort.Close()
+
+        End If
+    End Function
+
 
 End Class
 

@@ -21,7 +21,11 @@ Public Class frmStudentImage
         dt.Columns.Add("image", Type.GetType("System.Byte[]"))
 
         For Each drow As DataRow In dt.Rows
-            drow("image") = File.ReadAllBytes(drow("image_location").ToString)
+            Try
+                drow("image") = File.ReadAllBytes(drow("image_location").ToString)
+            Catch ex As Exception
+
+            End Try
         Next
         dgv.DataSource = dt
 
@@ -89,7 +93,7 @@ Public Class frmStudentImage
 
 
                 Dim byt As Byte() = System.Text.Encoding.UTF8.GetBytes(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"))
-                Dim RandomName = Convert.ToBase64String(byt)
+                Dim RandomName = Convert.ToBase64String(byt) & CInt(Math.Ceiling(Rnd() * 999999)) + 1
                 TrainedFace.Save("C:/StudentFaces/" & RandomName & ".bmp")
 
                 studentimage._Student_id = student._Student_id

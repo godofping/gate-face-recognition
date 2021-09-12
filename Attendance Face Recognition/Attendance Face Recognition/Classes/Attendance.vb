@@ -109,4 +109,6 @@ Public Class Attendance
             Return Helper.executeNonQueryBool(cmd)
         End Using
     End Function
+
+
 End Class
