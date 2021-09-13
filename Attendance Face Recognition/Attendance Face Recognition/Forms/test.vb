@@ -2,45 +2,43 @@
 
 
 Public Class test
+    Dim str As String
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim SerialPort As New System.IO.Ports.SerialPort()
+
         Dim bol As Boolean
 
-        If SerialPort.IsOpen Then
-            SerialPort.Close()
+
+        If SerialPort1.IsOpen Then
+            SerialPort1.Close()
         End If
 
-        SerialPort.PortName = "COM18"
-        SerialPort.BaudRate = 9600
-        SerialPort.Parity = Parity.None
-        SerialPort.StopBits = StopBits.One
-        SerialPort.DataBits = 8
-        SerialPort.Handshake = Handshake.RequestToSend
-        SerialPort.DtrEnable = True
-        SerialPort.RtsEnable = True
-
-
+        SerialPort1.PortName = "COM18"
+        SerialPort1.BaudRate = 9600
+        SerialPort1.Parity = Parity.None
+        SerialPort1.StopBits = StopBits.One
+        SerialPort1.DataBits = 8
+        SerialPort1.Handshake = Handshake.RequestToSend
+        SerialPort1.DtrEnable = True
+        SerialPort1.RtsEnable = True
 
         Try
-            SerialPort.Open()
+            SerialPort1.Open()
         Catch ex As Exception
             bol = False
         End Try
 
-        If SerialPort.IsOpen() Then
-            SerialPort.WriteLine("AT+CMGF=1")
-            SerialPort.WriteLine("AT+CMGL=" & Chr(34) & "REC READ" & Chr(34))
-            TextBox1.Text = SerialPort.ReadExisting()
+        If SerialPort1.IsOpen() Then
+
+            SerialPort1.WriteLine("AT")
+            System.Threading.Thread.Sleep(500)
+            'SerialPort1.WriteLine("AT+CMGF=1")
+            'System.Threading.Thread.Sleep(500)
+
+            TextBox1.Text = SerialPort1.ReadExisting()
+            SerialPort1.Close()
         End If
-
-
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim attendance As New Attendance
-        attendance._Student_id = "2006"
-        attendance._Attendance_type = "ENTRANCE"
-        MsgBox(attendance.FetchByTypeAndTime(attendance, DateTime.Now.ToString("yyyy-MM-dd") & " 00:00:00.000", DateTime.Now.ToString("yyyy-MM-dd") & " 12:00:00.000").Rows.Count)
 
-    End Sub
+
 End Class

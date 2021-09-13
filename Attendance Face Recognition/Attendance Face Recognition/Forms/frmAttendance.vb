@@ -135,6 +135,18 @@ Public Class frmAttendance
                                     End If
                                 End If
 
+                                If timeNow >= "12:00:01" And timeNow <= "17:00:00" Then
+                                    If attendance.FetchByTypeAndTime(attendance, DateTime.Now.ToString("yyyy-MM-dd") & " 12:00:01.000", DateTime.Now.ToString("yyyy-MM-dd") & " 17:00:00.000").Rows.Count = 0 Then
+                                        timerStudentInformationEntrance.Start()
+                                        pnlStudentInformationEntrance.Visible = True
+                                        lblStudentEntrance.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                                "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                                "Grade Level: " & student._Grade_level & vbCrLf &
+                                                "Time: " & currentdatetime
+                                        attendance.Create(attendance)
+                                    End If
+                                End If
+
                                 en = 0
                             End If
                         End If
@@ -202,6 +214,18 @@ Public Class frmAttendance
                                 attendance._Issent = 0
 
                                 Dim timeNow As String = Now.ToString("HH:mm:ss")
+                                If timeNow >= "06:00:00" And timeNow <= "12:00:00" Then
+                                    If attendance.FetchByTypeAndTime(attendance, DateTime.Now.ToString("yyyy-MM-dd") & " 06:00:00.000", DateTime.Now.ToString("yyyy-MM-dd") & " 12:00:00.000").Rows.Count = 0 Then
+                                        timerStudentInformationExit.Start()
+                                        pnlStudentInformationExit.Visible = True
+                                        lblStudentExit.Text = "ID Number: " & student._Id_number & vbCrLf &
+                                            "Student Name: " & student._Last_name & ", " & student._First_name & " " & student._Middle_name & vbCrLf &
+                                            "Grade Level: " & student._Grade_level & vbCrLf &
+                                            "Time: " & currentdatetime
+                                        attendance.Create(attendance)
+                                    End If
+                                End If
+
                                 If timeNow >= "12:00:01" And timeNow <= "17:00:00" Then
                                     If attendance.FetchByTypeAndTime(attendance, DateTime.Now.ToString("yyyy-MM-dd") & " 12:00:01.000", DateTime.Now.ToString("yyyy-MM-dd") & " 17:00:00.000").Rows.Count = 0 Then
                                         timerStudentInformationExit.Start()
@@ -213,7 +237,6 @@ Public Class frmAttendance
                                         attendance.Create(attendance)
                                     End If
                                 End If
-
 
                                 en = 0
                             End If
