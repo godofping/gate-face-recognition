@@ -98,10 +98,10 @@ Public Class frmAttendance
             gray = currentFrame.Convert(Of Gray, [Byte])()
 
             'Face Detector
-            Dim facesDetectedEntrance As MCvAvgComp()() = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
+            Dim facesDetected As MCvAvgComp()() = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, New Size(20, 20))
 
             'Action for each element detected
-            For Each f As MCvAvgComp In facesDetectedEntrance(0)
+            For Each f As MCvAvgComp In facesDetected(0)
                 result = currentFrame.Copy(f.rect).Convert(Of Gray, Byte)().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC)
                 'draw the face detected in the 0th (gray) channel with blue color
                 currentFrame.Draw(f.rect, New Bgr(Color.Green), 2)

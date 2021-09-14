@@ -159,3 +159,4 @@ C:\Users\HP\Desktop\gate-face-recognition-main\Attendance Face Recognition\Atten
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsCamera.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsGSMModule.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsPromos.resources
+C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsAttendanceType.resources

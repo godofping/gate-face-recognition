@@ -53,5 +53,7 @@
         Helper.ChangePanelDisplay(frmSettingsPromos, pnlMain)
     End Sub
 
-
+    Private Sub AttendanceTypeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AttendanceTypeToolStripMenuItem.Click
+        Helper.ChangePanelDisplay(frmSettingsAttendanceType, pnlMain)
+    End Sub
 End Class

@@ -136,6 +136,12 @@
     <Compile Include="Forms\frmReportAttendanceOfStudent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmSettingsAttendanceType.Designer.vb">
+      <DependentUpon>frmSettingsAttendanceType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSettingsAttendanceType.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmSettingsCamera.Designer.vb">
       <DependentUpon>frmSettingsCamera.vb</DependentUpon>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmReportAttendanceOfStudent.resx">
       <DependentUpon>frmReportAttendanceOfStudent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSettingsAttendanceType.resx">
+      <DependentUpon>frmSettingsAttendanceType.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettingsCamera.resx">
       <DependentUpon>frmSettingsCamera.vb</DependentUpon>

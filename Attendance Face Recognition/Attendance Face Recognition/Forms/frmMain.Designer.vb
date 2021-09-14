@@ -33,6 +33,7 @@ Partial Class frmMain
         Me.GSMModuleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PromosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnLogout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AttendanceTypeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -86,7 +87,7 @@ Partial Class frmMain
         '
         'mnSettings
         '
-        Me.mnSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CameraToolStripMenuItem, Me.GSMModuleToolStripMenuItem, Me.PromosToolStripMenuItem})
+        Me.mnSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CameraToolStripMenuItem, Me.GSMModuleToolStripMenuItem, Me.PromosToolStripMenuItem, Me.AttendanceTypeToolStripMenuItem})
         Me.mnSettings.ForeColor = System.Drawing.Color.White
         Me.mnSettings.Name = "mnSettings"
         Me.mnSettings.Size = New System.Drawing.Size(92, 26)
@@ -116,6 +117,12 @@ Partial Class frmMain
         Me.mnLogout.Name = "mnLogout"
         Me.mnLogout.Size = New System.Drawing.Size(87, 26)
         Me.mnLogout.Text = "Logout"
+        '
+        'AttendanceTypeToolStripMenuItem
+        '
+        Me.AttendanceTypeToolStripMenuItem.Name = "AttendanceTypeToolStripMenuItem"
+        Me.AttendanceTypeToolStripMenuItem.Size = New System.Drawing.Size(244, 26)
+        Me.AttendanceTypeToolStripMenuItem.Text = "Attendance Type"
         '
         'frmMain
         '
@@ -150,4 +157,5 @@ Partial Class frmMain
     Friend WithEvents CameraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GSMModuleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PromosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AttendanceTypeToolStripMenuItem As ToolStripMenuItem
 End Class
