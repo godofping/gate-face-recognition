@@ -5,6 +5,7 @@ Imports System.Threading
 Public Class frmReportAttendanceOfStudent
 
     Dim cr As New crAttendanceOfStudents
+    Dim crmix As New crAttendanceOfStudentsMix
     Dim date_from As String
     Dim date_to As String
     Dim title As String
@@ -21,9 +22,8 @@ Public Class frmReportAttendanceOfStudent
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
 
-        If Helper.CheckRequiredCB(cbFrequency, cbGradeLevel) And Helper.CheckRequiredDTP(dtDate) Then
+        If Helper.CheckRequiredCB(cbFrequency, cbGradeLevel, cbAttendanceType) And Helper.CheckRequiredDTP(dtDate) Then
             crv.ReportSource = Nothing
-
 
             If cbFrequency.Text.Equals("Daily") Then
                 date_from = dtDate.Text
@@ -50,17 +50,28 @@ Public Class frmReportAttendanceOfStudent
                 date_span = "(" & date_from & " to " & date_to & ")"
             End If
 
+            If Not cbAttendanceType.Text.Equals("MIX") Then
+                cr.SetParameterValue("title", title)
+                cr.SetParameterValue("date_from", date_from)
+                cr.SetParameterValue("date_to", date_to)
+                cr.SetParameterValue("grade_level", cbGradeLevel.Text)
+                cr.SetParameterValue("attendance_type", cbAttendanceType.Text)
+                cr.SetParameterValue("date_span", date_span)
+                crv.ReportSource = cr
+                cr.SetDatabaseLogon("sa", "123456")
+            Else
+                crmix.SetParameterValue("title", title)
+                crmix.SetParameterValue("date_from", date_from)
+                crmix.SetParameterValue("date_to", date_to)
+                crmix.SetParameterValue("grade_level", cbGradeLevel.Text)
+                crmix.SetParameterValue("attendance_type", cbAttendanceType.Text)
+                crmix.SetParameterValue("date_span", date_span)
+                crv.ReportSource = crmix
+                crmix.SetDatabaseLogon("sa", "123456")
+            End If
 
-            cr.SetParameterValue("title", title)
-            cr.SetParameterValue("date_from", date_from)
-            cr.SetParameterValue("date_to", date_to)
-            cr.SetParameterValue("grade_level", cbGradeLevel.Text)
-            cr.SetParameterValue("attendance_type", cbAttendanceType.Text)
-            cr.SetParameterValue("date_span", date_span)
 
 
-            crv.ReportSource = cr
-            cr.SetDatabaseLogon("sa", "123456")
             crv.Refresh()
         Else
             MsgBox("Please fill up all the required fields denote by an asterisk *")

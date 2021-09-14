@@ -27,18 +27,18 @@ Partial Class frmAttendance
         Me.lblAttendanceType = New System.Windows.Forms.Label()
         Me.pnlBottom = New System.Windows.Forms.Panel()
         Me.pnlTop = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.timerSMS = New System.Windows.Forms.Timer(Me.components)
         Me.pnlStudentInformation = New System.Windows.Forms.Panel()
         Me.lblStudent = New System.Windows.Forms.Label()
         Me.timerStudentInformation = New System.Windows.Forms.Timer(Me.components)
-        Me.IBCamera = New Emgu.CV.UI.ImageBox()
         Me.timerSetting = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.IBCamera = New Emgu.CV.UI.ImageBox()
         Me.pnlTop.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlStudentInformation.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IBCamera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,14 +47,16 @@ Partial Class frmAttendance
         '
         'lblAttendanceType
         '
-        Me.lblAttendanceType.AutoSize = True
+        Me.lblAttendanceType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblAttendanceType.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAttendanceType.ForeColor = System.Drawing.Color.Black
-        Me.lblAttendanceType.Location = New System.Drawing.Point(84, 217)
+        Me.lblAttendanceType.Location = New System.Drawing.Point(33, 196)
         Me.lblAttendanceType.Name = "lblAttendanceType"
-        Me.lblAttendanceType.Size = New System.Drawing.Size(297, 55)
+        Me.lblAttendanceType.Size = New System.Drawing.Size(1321, 55)
         Me.lblAttendanceType.TabIndex = 21
         Me.lblAttendanceType.Text = "ENTRANCE"
+        Me.lblAttendanceType.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'pnlBottom
         '
@@ -76,17 +78,6 @@ Partial Class frmAttendance
         Me.pnlTop.Size = New System.Drawing.Size(1366, 113)
         Me.pnlTop.TabIndex = 25
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = Global.Face_Attendance_SMS_Terminal.My.Resources.Resources.logondl
-        Me.PictureBox1.Location = New System.Drawing.Point(1248, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(115, 107)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 22
-        Me.PictureBox1.TabStop = False
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -99,14 +90,16 @@ Partial Class frmAttendance
         '
         'lblDateTime
         '
-        Me.lblDateTime.AutoSize = True
+        Me.lblDateTime.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 32.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTime.ForeColor = System.Drawing.Color.Olive
-        Me.lblDateTime.Location = New System.Drawing.Point(79, 135)
+        Me.lblDateTime.Location = New System.Drawing.Point(12, 132)
         Me.lblDateTime.Name = "lblDateTime"
-        Me.lblDateTime.Size = New System.Drawing.Size(365, 51)
+        Me.lblDateTime.Size = New System.Drawing.Size(1342, 51)
         Me.lblDateTime.TabIndex = 26
         Me.lblDateTime.Text = "Loading system.."
+        Me.lblDateTime.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'timerSMS
         '
@@ -114,9 +107,10 @@ Partial Class frmAttendance
         '
         'pnlStudentInformation
         '
+        Me.pnlStudentInformation.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.pnlStudentInformation.BackColor = System.Drawing.Color.Green
         Me.pnlStudentInformation.Controls.Add(Me.lblStudent)
-        Me.pnlStudentInformation.Location = New System.Drawing.Point(589, 292)
+        Me.pnlStudentInformation.Location = New System.Drawing.Point(480, 507)
         Me.pnlStudentInformation.Name = "pnlStudentInformation"
         Me.pnlStudentInformation.Size = New System.Drawing.Size(466, 238)
         Me.pnlStudentInformation.TabIndex = 27
@@ -124,30 +118,46 @@ Partial Class frmAttendance
         '
         'lblStudent
         '
+        Me.lblStudent.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblStudent.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStudent.ForeColor = System.Drawing.Color.White
         Me.lblStudent.Location = New System.Drawing.Point(16, 17)
         Me.lblStudent.Name = "lblStudent"
         Me.lblStudent.Size = New System.Drawing.Size(428, 207)
         Me.lblStudent.TabIndex = 22
+        Me.lblStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'timerStudentInformation
         '
         Me.timerStudentInformation.Interval = 1000
         '
-        'IBCamera
-        '
-        Me.IBCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IBCamera.Location = New System.Drawing.Point(88, 292)
-        Me.IBCamera.Name = "IBCamera"
-        Me.IBCamera.Size = New System.Drawing.Size(466, 436)
-        Me.IBCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IBCamera.TabIndex = 19
-        Me.IBCamera.TabStop = False
-        '
         'timerSetting
         '
         Me.timerSetting.Interval = 1000
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.Image = Global.Face_Attendance_SMS_Terminal.My.Resources.Resources.logondl
+        Me.PictureBox1.Location = New System.Drawing.Point(1248, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(115, 107)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 22
+        Me.PictureBox1.TabStop = False
+        '
+        'IBCamera
+        '
+        Me.IBCamera.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.IBCamera.BackColor = System.Drawing.Color.Black
+        Me.IBCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.IBCamera.Location = New System.Drawing.Point(480, 254)
+        Me.IBCamera.Name = "IBCamera"
+        Me.IBCamera.Size = New System.Drawing.Size(466, 436)
+        Me.IBCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IBCamera.TabIndex = 28
+        Me.IBCamera.TabStop = False
         '
         'frmAttendance
         '
@@ -156,11 +166,11 @@ Partial Class frmAttendance
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1366, 768)
         Me.Controls.Add(Me.pnlStudentInformation)
+        Me.Controls.Add(Me.IBCamera)
         Me.Controls.Add(Me.lblDateTime)
         Me.Controls.Add(Me.pnlTop)
         Me.Controls.Add(Me.pnlBottom)
         Me.Controls.Add(Me.lblAttendanceType)
-        Me.Controls.Add(Me.IBCamera)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
         Me.name = "frmAttendance"
@@ -169,14 +179,12 @@ Partial Class frmAttendance
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlTop.ResumeLayout(False)
         Me.pnlTop.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlStudentInformation.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IBCamera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Private WithEvents IBCamera As Emgu.CV.UI.ImageBox
     Friend WithEvents timerCamera As Timer
     Friend WithEvents lblAttendanceType As Label
     Friend WithEvents pnlBottom As Panel
@@ -189,4 +197,5 @@ Partial Class frmAttendance
     Friend WithEvents lblStudent As Label
     Friend WithEvents timerStudentInformation As Timer
     Friend WithEvents timerSetting As Timer
+    Private WithEvents IBCamera As Emgu.CV.UI.ImageBox
 End Class

@@ -76,6 +76,7 @@
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         enableForm(True)
+        btnRegisterPromo.Visible = True
         clearForm()
         getData()
         s = "UPDATE"
@@ -123,6 +124,7 @@
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         enableForm(False)
+        btnRegisterPromo.Visible = False
         clearForm()
     End Sub
 

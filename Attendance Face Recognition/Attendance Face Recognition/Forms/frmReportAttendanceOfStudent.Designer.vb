@@ -150,7 +150,7 @@ Partial Class frmReportAttendanceOfStudent
         Me.cbAttendanceType.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.cbAttendanceType.FormattingEnabled = True
         Me.cbAttendanceType.ItemHeight = 20
-        Me.cbAttendanceType.Items.AddRange(New Object() {"ENTRANCE", "EXIT"})
+        Me.cbAttendanceType.Items.AddRange(New Object() {"ENTRANCE", "EXIT", "MIX"})
         Me.cbAttendanceType.Location = New System.Drawing.Point(632, 54)
         Me.cbAttendanceType.Name = "cbAttendanceType"
         Me.cbAttendanceType.Size = New System.Drawing.Size(111, 28)
