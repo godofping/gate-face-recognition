@@ -156,7 +156,6 @@ C:\Users\HP\Desktop\gate-face-recognition-main\Attendance Face Recognition\Atten
 C:\Users\HP\Desktop\gate-face-recognition-main\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face Attendance SMS Terminal.exe
 C:\Users\HP\Desktop\gate-face-recognition-main\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face Attendance SMS Terminal.xml
 C:\Users\HP\Desktop\gate-face-recognition-main\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face Attendance SMS Terminal.pdb
-C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.test.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsCamera.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsGSMModule.resources
 C:\xampp\htdocs\gate-face-recognition\Attendance Face Recognition\Attendance Face Recognition\obj\Debug\Face_Attendance_SMS_Terminal.frmSettingsPromos.resources
