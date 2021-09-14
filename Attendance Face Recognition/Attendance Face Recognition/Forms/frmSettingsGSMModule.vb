@@ -21,7 +21,7 @@ Public Class frmSettingsGSMModule
     End Sub
 
     Private Sub GetData()
-        setting = setting.Fetch(setting)
+        setting = setting.Fetch()
         lblBroadbandCom.Text = "Current Value: " & setting._Broadband_com
     End Sub
 
@@ -31,7 +31,7 @@ Public Class frmSettingsGSMModule
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        setting = setting.Fetch(setting)
+        setting = setting.Fetch()
         setting._Broadband_com = cbBroadbandCom.Text
         If setting.Update(setting) Then
             MsgBox("Success")

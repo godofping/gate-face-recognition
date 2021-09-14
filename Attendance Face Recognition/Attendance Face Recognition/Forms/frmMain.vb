@@ -1,6 +1,6 @@
 ﻿Public Class frmMain
 
-    Dim admin As New Admin
+    Public admin As New Admin
 
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
@@ -52,4 +52,6 @@
     Private Sub PromosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PromosToolStripMenuItem.Click
         Helper.ChangePanelDisplay(frmSettingsPromos, pnlMain)
     End Sub
+
+
 End Class

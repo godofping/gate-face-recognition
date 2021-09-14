@@ -60,8 +60,8 @@ Public Class frmStudentImage
     End Sub
 
     Private Sub frmStudentImage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        setting = setting.Fetch(setting)
-        grabber = New Capture(setting._Camera_entrance)
+        setting = setting.Fetch()
+        grabber = New Capture(setting._Camera_number)
         grabber.QueryFrame()
         Timer1.Start()
         getImages()

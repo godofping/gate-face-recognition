@@ -23,59 +23,38 @@ Partial Class frmAttendance
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.timerCameraEntrance = New System.Windows.Forms.Timer(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.timerCameraExit = New System.Windows.Forms.Timer(Me.components)
+        Me.timerCamera = New System.Windows.Forms.Timer(Me.components)
+        Me.lblAttendanceType = New System.Windows.Forms.Label()
         Me.pnlBottom = New System.Windows.Forms.Panel()
         Me.pnlTop = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.timerSMS = New System.Windows.Forms.Timer(Me.components)
-        Me.pnlStudentInformationEntrance = New System.Windows.Forms.Panel()
-        Me.lblStudentEntrance = New System.Windows.Forms.Label()
-        Me.timerStudentInformationEntrance = New System.Windows.Forms.Timer(Me.components)
-        Me.pnlStudentInformationExit = New System.Windows.Forms.Panel()
-        Me.lblStudentExit = New System.Windows.Forms.Label()
-        Me.timerStudentInformationExit = New System.Windows.Forms.Timer(Me.components)
-        Me.IBExit = New Emgu.CV.UI.ImageBox()
-        Me.IBEntrance = New Emgu.CV.UI.ImageBox()
+        Me.pnlStudentInformation = New System.Windows.Forms.Panel()
+        Me.lblStudent = New System.Windows.Forms.Label()
+        Me.timerStudentInformation = New System.Windows.Forms.Timer(Me.components)
+        Me.IBCamera = New Emgu.CV.UI.ImageBox()
+        Me.timerSetting = New System.Windows.Forms.Timer(Me.components)
         Me.pnlTop.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlStudentInformationEntrance.SuspendLayout()
-        Me.pnlStudentInformationExit.SuspendLayout()
-        CType(Me.IBExit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IBEntrance, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlStudentInformation.SuspendLayout()
+        CType(Me.IBCamera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'timerCameraEntrance
+        'timerCamera
         '
         '
-        'Label2
+        'lblAttendanceType
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(82, 207)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(165, 31)
-        Me.Label2.TabIndex = 21
-        Me.Label2.Text = "ENTRANCE"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(698, 207)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 31)
-        Me.Label3.TabIndex = 23
-        Me.Label3.Text = "EXIT"
-        '
-        'timerCameraExit
-        '
+        Me.lblAttendanceType.AutoSize = True
+        Me.lblAttendanceType.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAttendanceType.ForeColor = System.Drawing.Color.Black
+        Me.lblAttendanceType.Location = New System.Drawing.Point(84, 217)
+        Me.lblAttendanceType.Name = "lblAttendanceType"
+        Me.lblAttendanceType.Size = New System.Drawing.Size(297, 55)
+        Me.lblAttendanceType.TabIndex = 21
+        Me.lblAttendanceType.Text = "ENTRANCE"
         '
         'pnlBottom
         '
@@ -133,73 +112,42 @@ Partial Class frmAttendance
         '
         Me.timerSMS.Interval = 5000
         '
-        'pnlStudentInformationEntrance
+        'pnlStudentInformation
         '
-        Me.pnlStudentInformationEntrance.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.pnlStudentInformationEntrance.BackColor = System.Drawing.Color.Green
-        Me.pnlStudentInformationEntrance.Controls.Add(Me.lblStudentEntrance)
-        Me.pnlStudentInformationEntrance.Location = New System.Drawing.Point(87, 449)
-        Me.pnlStudentInformationEntrance.Name = "pnlStudentInformationEntrance"
-        Me.pnlStudentInformationEntrance.Size = New System.Drawing.Size(466, 238)
-        Me.pnlStudentInformationEntrance.TabIndex = 27
-        Me.pnlStudentInformationEntrance.Visible = False
+        Me.pnlStudentInformation.BackColor = System.Drawing.Color.Green
+        Me.pnlStudentInformation.Controls.Add(Me.lblStudent)
+        Me.pnlStudentInformation.Location = New System.Drawing.Point(589, 292)
+        Me.pnlStudentInformation.Name = "pnlStudentInformation"
+        Me.pnlStudentInformation.Size = New System.Drawing.Size(466, 238)
+        Me.pnlStudentInformation.TabIndex = 27
+        Me.pnlStudentInformation.Visible = False
         '
-        'lblStudentEntrance
+        'lblStudent
         '
-        Me.lblStudentEntrance.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStudentEntrance.ForeColor = System.Drawing.Color.White
-        Me.lblStudentEntrance.Location = New System.Drawing.Point(16, 17)
-        Me.lblStudentEntrance.Name = "lblStudentEntrance"
-        Me.lblStudentEntrance.Size = New System.Drawing.Size(428, 207)
-        Me.lblStudentEntrance.TabIndex = 22
+        Me.lblStudent.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStudent.ForeColor = System.Drawing.Color.White
+        Me.lblStudent.Location = New System.Drawing.Point(16, 17)
+        Me.lblStudent.Name = "lblStudent"
+        Me.lblStudent.Size = New System.Drawing.Size(428, 207)
+        Me.lblStudent.TabIndex = 22
         '
-        'timerStudentInformationEntrance
+        'timerStudentInformation
         '
-        Me.timerStudentInformationEntrance.Interval = 1000
+        Me.timerStudentInformation.Interval = 1000
         '
-        'pnlStudentInformationExit
+        'IBCamera
         '
-        Me.pnlStudentInformationExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.pnlStudentInformationExit.BackColor = System.Drawing.Color.DarkGreen
-        Me.pnlStudentInformationExit.Controls.Add(Me.lblStudentExit)
-        Me.pnlStudentInformationExit.Location = New System.Drawing.Point(704, 449)
-        Me.pnlStudentInformationExit.Name = "pnlStudentInformationExit"
-        Me.pnlStudentInformationExit.Size = New System.Drawing.Size(466, 238)
-        Me.pnlStudentInformationExit.TabIndex = 28
-        Me.pnlStudentInformationExit.Visible = False
+        Me.IBCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.IBCamera.Location = New System.Drawing.Point(88, 292)
+        Me.IBCamera.Name = "IBCamera"
+        Me.IBCamera.Size = New System.Drawing.Size(466, 436)
+        Me.IBCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IBCamera.TabIndex = 19
+        Me.IBCamera.TabStop = False
         '
-        'lblStudentExit
+        'timerSetting
         '
-        Me.lblStudentExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStudentExit.ForeColor = System.Drawing.Color.White
-        Me.lblStudentExit.Location = New System.Drawing.Point(16, 17)
-        Me.lblStudentExit.Name = "lblStudentExit"
-        Me.lblStudentExit.Size = New System.Drawing.Size(436, 207)
-        Me.lblStudentExit.TabIndex = 22
-        '
-        'timerStudentInformationExit
-        '
-        Me.timerStudentInformationExit.Interval = 1000
-        '
-        'IBExit
-        '
-        Me.IBExit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IBExit.Location = New System.Drawing.Point(704, 252)
-        Me.IBExit.Name = "IBExit"
-        Me.IBExit.Size = New System.Drawing.Size(466, 436)
-        Me.IBExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IBExit.TabIndex = 22
-        Me.IBExit.TabStop = False
-        '
-        'IBEntrance
-        '
-        Me.IBEntrance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.IBEntrance.Location = New System.Drawing.Point(88, 252)
-        Me.IBEntrance.Name = "IBEntrance"
-        Me.IBEntrance.Size = New System.Drawing.Size(466, 436)
-        Me.IBEntrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IBEntrance.TabIndex = 19
-        Me.IBEntrance.TabStop = False
+        Me.timerSetting.Interval = 1000
         '
         'frmAttendance
         '
@@ -207,48 +155,38 @@ Partial Class frmAttendance
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1366, 768)
-        Me.Controls.Add(Me.pnlStudentInformationExit)
-        Me.Controls.Add(Me.pnlStudentInformationEntrance)
+        Me.Controls.Add(Me.pnlStudentInformation)
         Me.Controls.Add(Me.lblDateTime)
         Me.Controls.Add(Me.pnlTop)
         Me.Controls.Add(Me.pnlBottom)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.IBExit)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.IBEntrance)
+        Me.Controls.Add(Me.lblAttendanceType)
+        Me.Controls.Add(Me.IBCamera)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
-        Me.Name = "frmAttendance"
+        Me.name = "frmAttendance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmAttendance"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlTop.ResumeLayout(False)
         Me.pnlTop.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlStudentInformationEntrance.ResumeLayout(False)
-        Me.pnlStudentInformationExit.ResumeLayout(False)
-        CType(Me.IBExit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IBEntrance, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlStudentInformation.ResumeLayout(False)
+        CType(Me.IBCamera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Private WithEvents IBEntrance As Emgu.CV.UI.ImageBox
-    Friend WithEvents timerCameraEntrance As Timer
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Private WithEvents IBExit As Emgu.CV.UI.ImageBox
-    Friend WithEvents timerCameraExit As Timer
+    Private WithEvents IBCamera As Emgu.CV.UI.ImageBox
+    Friend WithEvents timerCamera As Timer
+    Friend WithEvents lblAttendanceType As Label
     Friend WithEvents pnlBottom As Panel
     Friend WithEvents pnlTop As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents lblDateTime As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents timerSMS As Timer
-    Friend WithEvents pnlStudentInformationEntrance As Panel
-    Friend WithEvents lblStudentEntrance As Label
-    Friend WithEvents timerStudentInformationEntrance As Timer
-    Friend WithEvents pnlStudentInformationExit As Panel
-    Friend WithEvents lblStudentExit As Label
-    Friend WithEvents timerStudentInformationExit As Timer
+    Friend WithEvents pnlStudentInformation As Panel
+    Friend WithEvents lblStudent As Label
+    Friend WithEvents timerStudentInformation As Timer
+    Friend WithEvents timerSetting As Timer
 End Class

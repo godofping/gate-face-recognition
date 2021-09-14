@@ -1,4 +1,5 @@
-﻿Imports System.IO.Ports
+﻿Imports System.Data.SqlClient
+Imports System.IO.Ports
 
 
 Public Class test
@@ -38,7 +39,6 @@ Public Class test
             SerialPort1.Close()
         End If
     End Sub
-
 
 
 End Class

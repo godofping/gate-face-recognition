@@ -108,6 +108,7 @@
     <Compile Include="Classes\EigenObjectRecognizer.vb" />
     <Compile Include="Classes\Helper.vb" />
     <Compile Include="Classes\Admin.vb" />
+    <Compile Include="Classes\Promo.vb" />
     <Compile Include="Classes\Setting.vb" />
     <Compile Include="Classes\Student.vb" />
     <Compile Include="Classes\StudentImage.vb" />
